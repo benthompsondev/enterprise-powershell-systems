@@ -1,0 +1,16 @@
+﻿2026-05-12 06:57:23 [INFO] Would process ajohnson1 for external ID EXT-10001
+2026-05-12 06:57:23 [INFO] Would target OU: OU=MedicalEducation,OU=Training,DC=example,DC=local
+2026-05-12 06:57:23 [INFO] Would apply groups: APP-Clinical-Training-Users;GG-Training-Email;GG-Training-Network-Login
+2026-05-12 06:57:23 [INFO] Would perform actions: Add training license group;Create new directory account;Create or update directory account;Enable or confirm mailbox;Grant training app access;Prepare notification email draft;Prepare ServiceNow-style task handoff;Set generated temporary password
+2026-05-12 06:57:23 [INFO] Would process mlee-training for external ID EXT-10002
+2026-05-12 06:57:23 [INFO] Would target OU: OU=NursingEducation,OU=Training,DC=example,DC=local
+2026-05-12 06:57:23 [INFO] Would apply groups: FS-Training-Shared-Drive;GG-Training-Network-Login
+2026-05-12 06:57:23 [INFO] Would perform actions: Create or update directory account;Grant shared drive access;Prepare notification email draft;Prepare ServiceNow-style task handoff;Re-enable existing directory account;Update account dates and training attributes
+2026-05-12 06:57:23 [INFO] Would process jpatel for external ID EXT-10003
+2026-05-12 06:57:23 [INFO] Would target OU: OU=ClinicalRotation,OU=Training,DC=example,DC=local
+2026-05-12 06:57:23 [INFO] Would apply groups: GG-Training-Email;GG-Training-Network-Login;VPN-Training-Users
+2026-05-12 06:57:23 [INFO] Would perform actions: Add training license group;Create new directory account;Create or update directory account;Enable or confirm mailbox;Prepare notification email draft;Prepare ServiceNow-style task handoff;Review remote access requirement;Set generated temporary password
+2026-05-12 06:57:23 [INFO] Would process rchen for external ID EXT-10004
+2026-05-12 06:57:23 [INFO] Would target OU: OU=Research,OU=Training,DC=example,DC=local
+2026-05-12 06:57:23 [INFO] Would apply groups: APP-Clinical-Training-Users
+2026-05-12 06:57:23 [INFO] Would perform actions: Confirm existing directory account;Grant training app access;Prepare notification email draft;Prepare ServiceNow-style task handoff;Update account dates and training attributes

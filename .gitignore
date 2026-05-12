@@ -1,0 +1,22 @@
+# Never commit private intake or local secrets
+_raw-private/
+.env
+*.key
+*.pem
+*.pfx
+*.cer
+
+# Local runtime output
+output/
+output-test/
+*.tmp
+
+# OS/editor files
+Thumbs.db
+Desktop.ini
+.vscode/
+
+# Keep public-safe fake examples and sample output in this repo.
+!enterprise-healthcare-systems/**/examples/**/*.csv
+!enterprise-healthcare-systems/**/examples/**/*.json
+!enterprise-healthcare-systems/**/examples/**/*.log

@@ -1,0 +1,4 @@
+ExternalPersonId,SamAccountName,DisplayName,Email,Enabled,CurrentOu
+EXT-10002,mlee-training,Morgan Lee,morgan.lee@example.local,False,"OU=NursingEducation,OU=Training,DC=example,DC=local"
+EXT-10004,rchen,Riley Chen,riley.chen@example.local,True,"OU=Research,OU=Training,DC=example,DC=local"
+EXT-99999,ajohnson,Avery Johnson,avery.old@example.local,True,"OU=GeneralTraining,OU=Training,DC=example,DC=local"

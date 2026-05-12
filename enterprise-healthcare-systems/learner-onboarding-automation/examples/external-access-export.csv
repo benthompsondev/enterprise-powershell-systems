@@ -1,0 +1,8 @@
+ExternalPersonId,FirstName,LastName,Email,Program,Service,TrainingLevel,RotationStartDate,RotationEndDate,RotationLocation,AccessType,AccessId,AccessPassword,ActivationDate,DeactivationDate,Comments,Status,LicenseRequired,TicketId
+EXT-10001,Avery,Johnson,avery.johnson@example.local,Medical Education,General Medicine,Resident,2026-06-03,2026-08-28,North Campus,Network Login,,,2026-06-01,2026-08-31,First rotation,Active,Yes,REQ-10001
+EXT-10001,Avery,Johnson,avery.johnson@example.local,Medical Education,General Medicine,Resident,2026-06-03,2026-08-28,North Campus,Email,,,2026-06-01,2026-08-31,Needs mailbox,Active,Yes,REQ-10001
+EXT-10001,Avery,Johnson,avery.johnson@example.local,Medical Education,General Medicine,Resident,2026-06-03,2026-08-28,North Campus,Clinical App,,,2026-06-01,2026-08-31,Needs training app,Active,Yes,REQ-10001
+EXT-10002,Morgan,Lee,morgan.lee@example.local,Nursing Education,Emergency,Student,03-Jun-26,30-Jul-26,West Campus,Network Login,mlee-training,,2026-06-01,2026-07-31,Existing disabled account should be re-enabled,Active,No,REQ-10002
+EXT-10002,Morgan,Lee,morgan.lee@example.local,Nursing Education,Emergency,Student,03-Jun-26,30-Jul-26,West Campus,Shared Drive,mlee-training,,2026-06-01,2026-07-31,Needs shared drive access,Active,No,REQ-10002
+EXT-10003,Jordan,Patel,jordan.patel@example.local,Clinical Rotation,Surgery,Fellow,2026-07-01,2026-12-15,South Campus,"Network Login;Email;VPN",,,2026-06-25,2026-12-20,Remote access review needed,Active,Yes,REQ-10003
+EXT-10004,Riley,Chen,riley.chen@example.local,Research,Cardiology,Research Assistant,2026-06-10,2026-09-10,Research Tower,Clinical App,rchen,,2026-06-08,2026-09-12,Existing enabled account gets updated,Active,No,REQ-10004

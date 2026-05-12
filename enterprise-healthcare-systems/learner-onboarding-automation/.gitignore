@@ -1,0 +1,6 @@
+output/
+output-test/
+*.log
+!examples/**/*.csv
+!examples/**/*.json
+!examples/sample-output/*.log
