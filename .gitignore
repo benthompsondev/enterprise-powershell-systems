@@ -16,6 +16,9 @@ Thumbs.db
 Desktop.ini
 .vscode/
 
+# Local code intelligence indexes
+.codegraph/
+
 # Keep public-safe fake examples and sample output in this repo.
 !enterprise-healthcare-systems/**/examples/**/*.csv
 !enterprise-healthcare-systems/**/examples/**/*.json
