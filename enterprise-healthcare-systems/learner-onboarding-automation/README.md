@@ -4,7 +4,7 @@ This is a sanitized PowerShell project based on a real external-access onboardin
 
 ## Project Background
 
-The original script replaced an entire student / learner onboarding process inside an organization. Before the automation, onboarding required a lot of manual checking, account work, access review, reporting, and handoffs between systems and teams.
+The original script replaced a student / learner onboarding process inside a healthcare IT environment. Before the automation, onboarding required a lot of manual checking, account work, access review, reporting, and handoffs between systems and teams.
 
 I worked on the script over months, testing and fine-tuning it as edge cases showed up. By the end, it automated nearly everything in that onboarding workflow: reading the source export, finding or creating the right account path, planning access, handling dates, preparing output files, and creating the information other teams needed to finish their part.
 
@@ -12,11 +12,11 @@ This public version is not the private production script. It is a cleaned and sa
 
 ## Real-World Impact
 
-The original workflow ran live in a hospital environment and replaced a full student / learner onboarding process. It handled high-volume onboarding periods where hundreds of learner records could be processed in a day and thousands across a month.
+The original workflow ran live in a healthcare IT environment and replaced a full student / learner onboarding process. It handled high-volume onboarding periods where hundreds of learner records could be processed in a day and thousands across a month.
 
 The value was not just speed. It reduced repeated manual work for the application team by turning CSV-based intake into a repeatable workflow that could plan accounts, group membership, mailbox needs, ServiceNow-style task handoffs, notification emails, and review reports from the same source data.
 
-In an interview, I would describe this as a PowerShell automation project that replaced a manual onboarding system, supported production healthcare onboarding volume, and saved thousands of manual work hours by coordinating account and access work across multiple systems.
+In an interview, I would describe this as a PowerShell automation project that replaced a manual onboarding system, supported high-volume healthcare onboarding, and reduced a large amount of repeated account and access work by coordinating the process across multiple systems.
 
 ## The Problem It Solved
 
@@ -104,6 +104,16 @@ This project is useful to discuss in a DevOps interview because it shows more th
 - I coordinated work across identity, email, service desk, application access, group membership, and reporting.
 - I added logs and exports so runs could be checked after execution.
 - I sanitized the public version by replacing private integrations with fake data, local reports, and simulation output.
+
+## What To Review First
+
+If you are reviewing this as a portfolio project, start with:
+
+1. `scripts/Invoke-AccountOnboardingDemo.ps1` for the workflow logic.
+2. `examples/external-access-export.csv` for fake source data.
+3. `examples/sample-output/external-access-plan.csv` for the merged plan.
+4. `tests/Run-DemoCheck.ps1` for the validation check.
+5. `docs/interview-notes.md` for the short explanation of the real-world value.
 
 ## Why I Think This Is Useful
 

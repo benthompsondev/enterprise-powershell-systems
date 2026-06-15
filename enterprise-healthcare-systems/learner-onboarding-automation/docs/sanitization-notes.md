@@ -44,7 +44,7 @@ The public version keeps those ideas, but every system touch has been changed in
 
 ## What Was Removed Or Replaced
 
-- [x] employer or hospital names
+- [x] employer or organization names
 - [x] real source system names
 - [x] real OUs, domains, and tenant details
 - [x] real users, emails, groups, and mailboxes
@@ -73,7 +73,7 @@ The public placeholders are:
 
 This shows more than a small helper script. It represents a months-long automation project that replaced a manual learner onboarding process and automated most of the repeated account/access work around it.
 
-The real production workflow ran in a hospital environment and supported high-volume onboarding periods. The public version keeps that scale and story in generic terms, while removing the private organization name, real system names, real routing, and real data.
+The real production workflow ran in a healthcare IT environment and supported high-volume onboarding periods. The public version keeps that scale and story in generic terms, while removing the private organization name, real system names, real routing, and real data.
 
 It shows that I worked through a real onboarding automation problem with moving parts:
 

@@ -25,8 +25,8 @@ param(
 $ErrorActionPreference = "Stop"
 
 # This public demo keeps the same kind of shape as the original work script.
-# The original replaced a student / learner onboarding process in a hospital
-# environment and was tested over months as edge cases showed up.
+# The original replaced a student / learner onboarding process in a healthcare
+# IT environment and was tested over months as edge cases showed up.
 # It automated most of the repeated work:
 # reading a source export, matching existing accounts, planning account changes,
 # handling access needs, planning group membership, preparing mailbox and

@@ -2,7 +2,7 @@
 
 ## Short Version
 
-I built a PowerShell automation workflow that replaced a manual student / learner onboarding process in a hospital environment. It took CSV exports from a source system and turned them into account, access, mailbox, group membership, ServiceNow-style task, notification, and reporting work.
+I built a PowerShell automation workflow that replaced a manual student / learner onboarding process in a healthcare IT environment. It took CSV exports from a source system and turned them into account, access, mailbox, group membership, ServiceNow-style task, notification, and reporting work.
 
 The original ran live, was tested and tuned over months, and supported high-volume onboarding periods with hundreds of learner records in a day and thousands across a month.
 
