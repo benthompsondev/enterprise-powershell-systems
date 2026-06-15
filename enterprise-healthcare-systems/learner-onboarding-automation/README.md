@@ -97,7 +97,7 @@ This project shows more than basic PowerShell syntax:
 - I separated planning from action so the workflow could be reviewed before touching accounts.
 - I coordinated work across identity, email, service desk, application access, group membership, and reporting.
 - I added logs and exports so runs could be checked after execution.
-- private integrations were replaced with fake data, local reports, and simulation output
+- Private integrations were replaced with fake data, local reports, and simulation output.
 
 ## What To Review First
 
