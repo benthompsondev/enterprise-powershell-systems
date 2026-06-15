@@ -1,0 +1,13 @@
+{
+  "CsvName": "password-review-export.csv",
+  "CsvFullName": "password-review-export.csv",
+  "CsvHash": "D0ADB44F59DDADD50816B6F5BE05F0CBDC9D5FDB08E1B13A8EDAA781C434509B",
+  "CycleStarted": "2026-06-15 16:37:34",
+  "ComplianceCutoff": "2026-05-14 00:00:00",
+  "RunsCompleted": 3,
+  "LastRunDate": "2026-06-15 16:37:34",
+  "Archived": true,
+  "ArchivedPath": "archive/2026-06/password-review-export.csv",
+  "StateArchivedPath": "archive/2026-06/cycle_state.json",
+  "TotalPasses": 3
+}

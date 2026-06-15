@@ -1,0 +1,7 @@
+EmployeeId,SamAccountName,UserPrincipalName,DisplayName,Enabled,PasswordLastSet,Department,ManagerEmail
+EMP-1001,demo.alpha,demo.alpha@example.local,Demo Alpha,True,2026-03-01,Operations Support,manager.alpha@example.local
+EMP-1002,demo.bravo,demo.bravo@example.local,Demo Bravo,True,2025-12-15,Finance Operations,manager.bravo@example.local
+EMP-1003,demo.charlie,demo.charlie@example.local,Demo Charlie,True,2026-05-30,Research,manager.charlie@example.local
+EMP-1004,demo.delta,demo.delta@example.local,Demo Delta,False,2025-11-20,Education,manager.delta@example.local
+EMP-1005,svc-demo-reporting,svc-demo-reporting@example.local,Demo Reporting Service,True,2025-10-01,Automation,manager.echo@example.local
+EMP-1006,demo.echo,demo.echo@example.local,Demo Echo,True,2026-01-10,Operations Support,manager.alpha@example.local

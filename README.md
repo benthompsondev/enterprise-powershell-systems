@@ -23,13 +23,17 @@ The pattern I want to show is simple:
 | Status | Project | What It Shows |
 | --- | --- | --- |
 | Flagship | [Learner Onboarding Automation](enterprise-healthcare-systems/learner-onboarding-automation/) | CSV ingest, account lifecycle planning, AD-style matching, Exchange/mailbox planning, group membership, ServiceNow-style handoff, notification drafts, reports, and validation |
+| Flagship | [Password Remediation Workflow](enterprise-healthcare-systems/password-remediation-workflow/) | Security export conversion, stateful remediation cycles, mock directory checks, staged notifications, duplicate-run protection, audit output, and safe final reset planning |
 
 ## Quick Verification
 
-Run the flagship demo check from the repo root:
+Run the demo checks from the repo root:
 
 ```powershell
 Set-Location .\enterprise-healthcare-systems\learner-onboarding-automation
+powershell -ExecutionPolicy Bypass -File .\tests\Run-DemoCheck.ps1
+
+Set-Location ..\password-remediation-workflow
 powershell -ExecutionPolicy Bypass -File .\tests\Run-DemoCheck.ps1
 ```
 

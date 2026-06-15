@@ -1,0 +1,13 @@
+2026-06-15 16:37:34 [INFO] Password remediation demo started in SimulateApply mode
+2026-06-15 16:37:34 [INFO] Test/simulation only. No email, AD, SMTP, file share, or credential access occurs.
+2026-06-15 16:37:34 [INFO] Validated 6 source row(s).
+2026-06-15 16:37:34 [INFO] CSV hash: D0ADB44F59DDADD50816B6F5BE05F0CBDC9D5FDB08E1B13A8EDAA781C434509B
+2026-06-15 16:37:34 [INFO] State file: cycle_state.json
+2026-06-15 16:37:34 [INFO] Current pass: 3 of 3 (ForceReset)
+2026-06-15 16:37:34 [INFO] Compliance cutoff: 2026-05-14 00:00:00
+2026-06-15 16:37:34 [INFO] Plan written to password-remediation-plan.csv
+2026-06-15 16:37:34 [INFO] Summary written to remediation-summary.csv
+2026-06-15 16:37:34 [INFO] Snapshot written to filtered-snapshot-20260615-163734.csv
+2026-06-15 16:37:34 [INFO] Notification drafts written to notification-drafts.md
+2026-06-15 16:37:34 [INFO] Simulation log written to simulated-apply.log
+2026-06-15 16:37:34 [INFO] Final pass complete. CSV/state copied to archive and active state removed.

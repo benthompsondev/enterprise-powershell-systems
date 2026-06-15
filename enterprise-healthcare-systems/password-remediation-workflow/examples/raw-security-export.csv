@@ -1,0 +1,7 @@
+Discovery Date,User,Secondary Name,User Classification,Password Last Change,Privileged,Org. Unit,Department,Watched,Marked,Stale,Inactive,Disabled,Password Never Expires,User - link
+2026-05-14,EMP-1001,EXAMPLE\demo.alpha,Standard,2026-03-01,No,Training Users,Operations Support,Yes,No,No,No,No,No,https://security.example.local/finding/1001
+2026-05-14,EMP-1002,EXAMPLE\demo.bravo,Standard,2025-12-15,No,Training Users,Finance Operations,Yes,No,No,No,No,No,https://security.example.local/finding/1002
+2026-05-14,EMP-1003,EXAMPLE\demo.charlie,Standard,2026-05-30,No,Training Users,Research,Yes,No,No,No,No,No,https://security.example.local/finding/1003
+2026-05-14,EMP-1004,EXAMPLE\demo.delta,Standard,2025-11-20,No,Disabled Users,Education,Yes,No,No,No,Yes,No,https://security.example.local/finding/1004
+2026-05-14,EMP-1005,EXAMPLE\svc-demo-reporting,Service Account,2025-10-01,No,Service Accounts,Automation,Yes,No,No,No,No,Yes,https://security.example.local/finding/1005
+2026-05-14,EMP-1006,EXAMPLE\demo.echo,Standard,2026-01-10,No,Training Users,Operations Support,Yes,No,No,No,No,No,https://security.example.local/finding/1006

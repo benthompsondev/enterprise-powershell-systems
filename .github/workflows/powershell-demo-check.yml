@@ -17,3 +17,16 @@ jobs:
         run: |
           Set-Location "enterprise-healthcare-systems/learner-onboarding-automation"
           ./tests/Run-DemoCheck.ps1
+
+  password-remediation-demo:
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Run password remediation demo check
+        shell: pwsh
+        run: |
+          Set-Location "enterprise-healthcare-systems/password-remediation-workflow"
+          ./tests/Run-DemoCheck.ps1
