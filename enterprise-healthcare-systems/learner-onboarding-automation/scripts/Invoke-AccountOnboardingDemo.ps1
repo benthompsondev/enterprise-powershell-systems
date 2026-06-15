@@ -24,18 +24,12 @@ param(
 
 $ErrorActionPreference = "Stop"
 
-# This public demo keeps the same kind of shape as the original work script.
-# The original replaced a student / learner onboarding process in a healthcare
-# IT environment and was tested over months as edge cases showed up.
-# It automated most of the repeated work:
-# reading a source export, matching existing accounts, planning account changes,
-# handling access needs, planning group membership, preparing mailbox and
-# service desk handoffs, writing reports, and preparing notification details.
-# The real script touched private systems; this version only plans and simulates.
+# This demo keeps the shape of the original onboarding workflow without touching
+# private systems. It reads an export, plans the account/access work, writes the
+# reports, and simulates the apply step.
 
-# These are the columns the outside system export is expected to contain.
-# Keeping this list explicit makes bad exports fail early instead of halfway
-# through the workflow.
+# Required columns from the outside export. Keeping this list explicit makes
+# bad CSVs fail early instead of halfway through the workflow.
 $RequiredColumns = @(
     "ExternalPersonId",
     "FirstName",
@@ -58,10 +52,8 @@ $RequiredColumns = @(
     "TicketId"
 )
 
-# Access types from the source export are mapped to three things:
-# a boolean flag for reporting, a fake group name, and a plain-English action.
-# In the real environment, this kind of mapping is what turns messy CSV data
-# into account, mailbox, app, and permission work.
+# Map each access type to a report flag, a fake group, and a plain-English
+# action. This is the part that turns messy CSV rows into planned IT work.
 $AccessTypeMap = @{
     "Network Login" = @{
         Flag = "NeedsDirectoryAccount"
@@ -90,8 +82,8 @@ $AccessTypeMap = @{
     }
 }
 
-# Public-safe OU placeholders. These intentionally show the idea of OU routing
-# without exposing real directory structure.
+# Fake OU placeholders. They show the routing idea without exposing a real
+# directory structure.
 $ProgramOuMap = @{
     "Medical Education" = "OU=MedicalEducation,OU=Training,DC=example,DC=local"
     "Nursing Education" = "OU=NursingEducation,OU=Training,DC=example,DC=local"
@@ -115,8 +107,8 @@ function Write-DemoLog {
     [string]$Level = "INFO"
     )
 
-# The original workflow needed logs so a run could be reviewed after the fact.
-# This demo writes local logs only; it does not touch shared drives or ticketing.
+# Local log only. The original needed reviewable logs, but this demo does not
+# touch shared drives or ticketing.
     $line = "{0} [{1}] {2}" -f (Get-Date -Format "yyyy-MM-dd HH:mm:ss"), $Level, $Message
     Add-Content -LiteralPath $Path -Value $line -Encoding UTF8
 }
@@ -131,8 +123,7 @@ function Get-UniqueFileName {
     $candidate = Join-Path $Directory "$BaseName$Extension"
     $counter = 1
 
-# Runs can create several reports. This avoids overwriting an older report if
-# someone runs the demo more than once into the same folder.
+# Avoid overwriting older reports when the demo is run more than once.
     while (Test-Path -LiteralPath $candidate) {
         $candidate = Join-Path $Directory ("{0}-{1}{2}" -f $BaseName, $counter, $Extension)
         $counter++
@@ -159,8 +150,8 @@ function ConvertTo-DateOrNull {
         return $null
     }
 
-# Source exports are not always consistent about dates. The original script had
-# to tolerate multiple formats, so this public version does the same.
+# Source exports are not always consistent about dates, so accept the common
+# formats the workflow may see.
     $formats = @("yyyy-MM-dd", "M/d/yyyy", "MM/dd/yyyy", "dd-MMM-yy", "dd-MMM-yyyy")
     foreach ($format in $formats) {
         try {
@@ -218,8 +209,8 @@ function Split-AccessTypeList {
         return @()
     }
 
-# Some exports pack more than one access type into one cell. Split both comma
-# and semicolon lists so the later planning logic can treat each access cleanly.
+# Some exports pack more than one access type into one cell. Split the list so
+# each access request can be planned cleanly.
     return $clean -split "[;,]" |
         ForEach-Object { $_.Trim() } |
         Where-Object { $_ } |
@@ -247,8 +238,8 @@ function Test-ExternalAccessRow {
     $errors = New-Object System.Collections.Generic.List[string]
     $missingColumns = @(Get-RequiredColumnErrors -Row $Row)
 
-# Validation is intentionally done before planning. In real admin automation,
-# bad rows should be reported clearly instead of causing half-finished changes.
+# Validate before planning. Bad rows should be reported clearly instead of
+# causing half-finished work.
     foreach ($column in $missingColumns) {
         $errors.Add("Missing required column: $column")
     }
@@ -292,8 +283,8 @@ function Test-ExternalAccessRow {
     $startDate = ConvertTo-DateOrNull -Value $Row.RotationStartDate
     $endDate = ConvertTo-DateOrNull -Value $Row.RotationEndDate
 
-# Start and end dates matter because access should not live forever just
-# because the import file was messy.
+# Start and end dates matter. Access should not live forever because the import
+# file was messy.
     if ($null -eq $startDate) {
         $errors.Add("Row $RowNumber has invalid RotationStartDate: $($Row.RotationStartDate)")
     }
@@ -325,8 +316,8 @@ function Import-MockDirectory {
         return @()
     }
 
-# This replaces live AD lookups in the public version. The CSV lets the demo
-# still show matching and re-enable logic without connecting to anything real.
+# Fake directory lookup. This lets the demo show matching and re-enable logic
+# without connecting to anything real.
     return @(Import-Csv -LiteralPath $Path)
 }
 
@@ -342,8 +333,8 @@ function Find-MockDirectoryUser {
     $cleanAccessId = ConvertTo-CleanString -Value $AccessId
     $cleanEmail = ConvertTo-CleanString -Value $Email
 
-# Match in the same order an admin would usually trust the data:
-# external system ID first, then known access ID, then email as a fallback.
+# Match in the order an admin would usually trust the data: external ID first,
+# then known access ID, then email as a fallback.
     $match = $DirectoryUsers | Where-Object {
         $_.ExternalPersonId -eq $cleanExternalId
     } | Select-Object -First 1
@@ -378,8 +369,8 @@ function New-TemporaryPassword {
     $special = "!@#$%&*"
     $all = ($numbers + $upper + $lower + $special).ToCharArray()
 
-# This generates a placeholder password for new-account planning only.
-# Do not use this as a real password policy without reviewing your environment.
+# Placeholder password for new-account planning only. Do not treat this as a
+# real password policy.
     $chars = @(
         $numbers[(Get-Random -Minimum 0 -Maximum $numbers.Length)]
         $upper[(Get-Random -Minimum 0 -Maximum $upper.Length)]
@@ -407,8 +398,8 @@ function ConvertTo-BaseSamAccountName {
         return "user"
     }
 
-# SamAccountName still has legacy length limits in many environments, so the
-# demo keeps the account name short like the original workflow had to.
+# SamAccountName still has old length limits in many environments, so keep the
+# planned name short.
     $base = "{0}{1}" -f $cleanFirst.Substring(0, 1), $cleanLast
     if ($base.Length -gt 20) {
         $base = $base.Substring(0, 20)
@@ -429,8 +420,8 @@ function Get-UniqueSamAccountName {
     $candidate = $base
     $counter = 1
 
-# Check both the fake directory and names already planned in this run. This
-# catches duplicate names before a real provisioning step would fail.
+# Check both the fake directory and names already planned in this run. Catch the
+# duplicate before provisioning would fail.
     while (
         ($DirectoryUsers | Where-Object { $_.SamAccountName -eq $candidate }) -or
         $ReservedNames.Contains($candidate)
@@ -455,8 +446,8 @@ function Get-UniqueDisplayName {
     $baseName = "$FirstName $LastName"
     $exists = $DirectoryUsers | Where-Object { $_.DisplayName -eq $baseName } | Select-Object -First 1
 
-# If the display name already exists, label the new planned account as a
-# training/external account so it is easier to understand in reports.
+# If the display name already exists, label the planned account so the report is
+# easier to read.
     if ($exists) {
         return "$baseName (Training)"
     }
@@ -475,8 +466,7 @@ function New-AccessFlags {
         NeedsRemoteAccess     = $false
     }
 
-# Flags make the final CSV easier for a non-PowerShell reader to scan. They can
-# see which access buckets apply without reading the full action string.
+# Flags make the final CSV easier to scan without reading the full action text.
     foreach ($accessType in $AccessTypes) {
         if ($AccessTypeMap.ContainsKey($accessType)) {
             $flagName = $AccessTypeMap[$accessType].Flag
@@ -521,8 +511,8 @@ function Merge-ExternalAccessRows {
     $merged = New-Object System.Collections.Generic.List[object]
     $groups = $Rows | Group-Object -Property ExternalPersonId
 
-# The source export may have several rows for one person, one per access type.
-# The script turns that into one planned person with multiple access needs.
+# The export may have several rows for one person. Merge them into one planned
+# person with multiple access needs.
     foreach ($group in $groups) {
         $first = $group.Group | Select-Object -First 1
         $accessTypes = $group.Group |
@@ -542,8 +532,8 @@ function Merge-ExternalAccessRows {
             Where-Object { $_ } |
             Sort-Object -Unique
 
-# Keep the earliest start and latest end date across rows so the plan covers
-# the full access window for that person.
+# Keep the earliest start and latest end date so the plan covers the full access
+# window.
         $startDates = $group.Group | ForEach-Object { ConvertTo-DateOrNull -Value $_.RotationStartDate } | Where-Object { $_ }
         $endDates = $group.Group | ForEach-Object { ConvertTo-DateOrNull -Value $_.RotationEndDate } | Where-Object { $_ }
 
@@ -708,8 +698,8 @@ function New-ExternalAccessPlanItem {
         -AccessId $MergedUser.AccessId `
         -Email $MergedUser.Email
 
-# This is the core planning decision. The real script would have worked with
-# AD objects here. The demo chooses the same kind of outcome, but only as data.
+# Core planning decision. The real script worked with account objects here; the
+# demo writes the decision as data.
     $samAccountName = if ($existing) {
         $existing.SamAccountName
     } elseif (-not [string]::IsNullOrWhiteSpace($MergedUser.AccessId)) {
@@ -735,8 +725,8 @@ function New-ExternalAccessPlanItem {
     $accountState = "New"
     $matchedBy = "No existing match"
 
-# Existing disabled accounts get a different plan than brand-new people. This
-# is the part that makes the workflow more than a simple CSV-to-user script.
+# Existing disabled accounts need a different plan than brand-new people. This
+# is what makes the workflow more than CSV-to-user.
     if ($existing) {
         $accountState = if (ConvertTo-BooleanText -Value $existing.Enabled) { "ExistingEnabled" } else { "ExistingDisabled" }
         $matchedBy = "Matched mock directory by ExternalPersonId, AccessId, or Email"
@@ -757,8 +747,8 @@ function New-ExternalAccessPlanItem {
         $plannedActions.Add($AccessTypeMap[$accessType].Action)
     }
 
-# License handling stays generic here, but the pattern mirrors real work:
-# let the source data drive which access bundles need to be planned.
+# Keep license handling generic here. The point is that source data drives the
+# access bundles that need planning.
     if ($MergedUser.LicenseRequired) {
         $plannedActions.Add("Add training license group")
     }
@@ -769,8 +759,8 @@ function New-ExternalAccessPlanItem {
     $targetOu = Resolve-TargetOu -Program $MergedUser.Program
     $warnings = @(New-ReviewWarningList -MergedUser $MergedUser)
 
-# No real password is printed or set. For existing accounts the demo leaves it
-# alone; for new accounts it shows that a temporary password would be planned.
+# No real password is printed or set. New accounts only show that a temporary
+# password would be planned.
     $temporaryPassword = if ($MergedUser.AccessPassword) {
         "Provided by source export - not shown in public report"
     } elseif ($existing) {
@@ -814,9 +804,8 @@ function New-ExternalAccessPlanItem {
         PlannedActions          = ($plannedActions | Sort-Object -Unique) -join ";"
     }
 
-    # The original workflow crossed several systems. These fields split the
-    # plan into directory, Exchange/mailbox, and service desk lanes so the
-    # public version shows the same coordination without touching real systems.
+    # Split the plan into directory, mailbox, service desk, group, and
+    # notification lanes without touching real systems.
     $planItem | Add-Member -NotePropertyName DirectoryActions -NotePropertyValue (New-DirectoryActionText -AccountState $planItem.AccountState -TargetOu $planItem.TargetOu)
     $planItem | Add-Member -NotePropertyName MailboxActions -NotePropertyValue (New-MailboxActionText -PlanItem $planItem)
     $planItem | Add-Member -NotePropertyName ServiceDeskActions -NotePropertyValue (New-ServiceDeskActionText -PlanItem $planItem -Warnings $warnings)
@@ -839,9 +828,8 @@ function New-NotificationDraft {
     $lines.Add("These are fake draft notes. The script does not send email or create tickets.")
     $lines.Add("")
 
-# The original script prepared/send notification details for downstream work.
-# This public version writes Markdown drafts so the portfolio can show that
-# communication step without exposing recipients, SMTP settings, or tickets.
+# Write Markdown drafts instead of sending anything. This shows the handoff step
+# without exposing recipients, SMTP settings, or tickets.
     foreach ($item in $Plan) {
         $lines.Add("## $($item.DisplayName)")
         $lines.Add("")
@@ -883,9 +871,8 @@ function Export-WorkflowReports {
     $serviceDeskPlanCsv = Get-UniqueFileName -Directory $Directory -BaseName "service-desk-handoff-plan" -Extension ".csv"
     $notificationDraft = Get-UniqueFileName -Directory $Directory -BaseName "notification-drafts" -Extension ".md"
 
-# Write multiple report shapes because different readers need different views:
-# full technical plan, JSON for automation, system-specific handoff reports,
-# summary CSV, and plain draft notes.
+# Write several report shapes because different readers need different views:
+# full plan, JSON, handoff reports, summary CSV, and draft notes.
     $Plan | Export-Csv -NoTypeInformation -LiteralPath $planCsv
     $Plan | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath $planJson -Encoding UTF8
 
@@ -927,8 +914,8 @@ function Invoke-SimulatedApply {
 
     $logPath = Get-UniqueFileName -Directory $Directory -BaseName "simulated-apply" -Extension ".log"
 
-# This is where a production script might create accounts, add groups, update
-# dates, or send notifications. The public demo only logs what it would do.
+# A production script might create accounts, add groups, update dates, or send
+# notifications here. The demo only logs what it would do.
     foreach ($item in $Plan) {
         Write-DemoLog -Path $logPath -Message "Would process $($item.SamAccountName) for external ID $($item.ExternalPersonId)"
         Write-DemoLog -Path $logPath -Message "Would target OU: $($item.TargetOu)"
@@ -945,9 +932,8 @@ New-SafeDirectory -Path $OutputDirectory
 $runLog = Get-UniqueFileName -Directory $OutputDirectory -BaseName "run-log" -Extension ".txt"
 Write-DemoLog -Path $runLog -Message "Starting external access onboarding demo in $Mode mode"
 
-# Load source data and the fake directory snapshot. Keeping these separate
-# makes it clear which data came from the export and which data represents the
-# current account state.
+# Load the source export and the fake directory snapshot separately so the
+# current account state is easy to reason about.
 $rows = @(Import-Csv -LiteralPath $CsvPath)
 $directoryUsers = @(Import-MockDirectory -Path $MockDirectoryPath)
 $validationErrors = New-Object System.Collections.Generic.List[object]
@@ -958,8 +944,8 @@ for ($index = 0; $index -lt $rows.Count; $index++) {
     $row = $rows[$index]
     $rowErrors = @(Test-ExternalAccessRow -Row $row -RowNumber $rowNumber)
 
-# Bad rows are collected and reported, while good rows continue through the
-# workflow. That lets one bad record avoid ruining the entire run.
+# Collect bad rows and keep processing the good ones. One bad record should not
+# ruin the whole run.
     if ($rowErrors.Count -gt 0) {
         foreach ($errorMessage in $rowErrors) {
             $validationErrors.Add([pscustomobject]@{
@@ -987,8 +973,8 @@ if ($Mode -eq "ValidateOnly") {
     return
 }
 
-# Once validation is done, duplicate source rows are merged into one person and
-# each person is turned into a reviewable access plan.
+# After validation, merge duplicate source rows and turn each person into a
+# reviewable access plan.
 $mergedUsers = @(Merge-ExternalAccessRows -Rows $validRows)
 $reservedNames = [System.Collections.Generic.HashSet[string]]::new([StringComparer]::OrdinalIgnoreCase)
 $plan = foreach ($mergedUser in $mergedUsers) {
@@ -997,8 +983,8 @@ $plan = foreach ($mergedUser in $mergedUsers) {
 
 $reports = Export-WorkflowReports -Plan $plan -Directory $OutputDirectory -Tenant $TenantName
 
-# Console output is short on purpose. The real detail lives in the generated
-# reports and logs so the run can be reviewed later.
+# Keep console output short. The detail belongs in the generated reports and
+# logs.
 Write-Output "Plan written to $($reports.PlanCsv)"
 Write-Output "JSON written to $($reports.PlanJson)"
 Write-Output "Access summary written to $($reports.AccessSummaryCsv)"

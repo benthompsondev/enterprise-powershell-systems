@@ -6,7 +6,7 @@
 
 ## What I Kept From The Original Idea
 
-The original script replaced a student / learner onboarding process and was tested and tuned over months. This sanitized version keeps the parts that make that impressive while removing private details:
+The original script replaced a student / learner onboarding process and was tested and tuned as edge cases showed up. This sanitized version keeps the useful workflow shape while removing private details:
 
 - import an external access CSV
 - validate required fields before doing anything else
@@ -25,7 +25,7 @@ The original script replaced a student / learner onboarding process and was test
 - create a log for review
 - simulate the apply step without touching real systems
 
-## What The Private Script Proved
+## What The Private Script Showed
 
 Without exposing private details, the original showed a lot of real work:
 
@@ -69,11 +69,11 @@ The public placeholders are:
 - generic OUs
 - local output folders
 
-## Why It Belongs In A Portfolio
+## Why It Is Worth Showing
 
-This shows more than a small helper script. It represents a months-long automation project that replaced a manual learner onboarding process and automated most of the repeated account/access work around it.
+This shows more than a small helper script. It represents an automation project that replaced a manual learner onboarding process and automated a lot of the repeated account/access work around it.
 
-The real production workflow ran in a healthcare IT environment and supported high-volume onboarding periods. The public version keeps that scale and story in generic terms, while removing the private organization name, real system names, real routing, and real data.
+The public version keeps the workflow pattern in generic terms while removing the private organization name, real system names, real routing, and real data.
 
 It shows that I worked through a real onboarding automation problem with moving parts:
 

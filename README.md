@@ -1,16 +1,16 @@
 # Enterprise PowerShell Systems
 
-This repo contains sanitized, public-safe examples of enterprise PowerShell systems and automation workflows I built or adapted from real IT work.
+This repo contains sanitized PowerShell examples based on real IT automation work.
 
-The examples are framed around practical systems administration and DevOps-style automation: CSV-driven workflows, identity and access planning, Microsoft 365 / Exchange-style operations, endpoint support, reporting, validation, and handoff between teams.
+The focus is practical systems work: messy CSV inputs, account and access planning, Microsoft 365 / Exchange-style handoffs, endpoint support, reporting, validation, and output another admin can review.
 
-## Why This Repo Exists
+## What This Repo Is For
 
-I work in healthcare IT and information systems, where a lot of useful automation starts with a messy CSV export, a manual checklist, and a process that needs to be safer and more repeatable.
+I work in healthcare IT and information systems. A lot of useful automation starts with a messy export, a manual checklist, and a process that needs to be safer and easier to repeat.
 
-The projects here are not raw workplace scripts. They are cleaned, sanitized versions that preserve the automation pattern while replacing private systems, paths, domains, users, tickets, and organization details with fake data.
+These are not raw workplace scripts. They are cleaned demo versions that keep the useful pattern while replacing private systems, paths, domains, users, tickets, and organization details with fake data.
 
-The goal is to show how I think through real operational automation:
+The pattern I want to show is simple:
 
 - validate input before planning changes
 - separate planning from execution
@@ -41,7 +41,7 @@ Demo check passed.
 
 ## Resume Alignment
 
-These projects connect to my experience with:
+These projects connect to the kind of work I have done around:
 
 - PowerShell automation
 - Active Directory and hybrid identity workflows
@@ -76,4 +76,3 @@ Open a project folder and read its README first. Most projects include:
 - generated sample output
 - a demo check under `tests/`
 - notes explaining what was sanitized
-- interview notes for discussing the project professionally

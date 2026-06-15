@@ -1,26 +1,18 @@
 # External Access Onboarding Automation Demo
 
-This is a sanitized PowerShell project based on a real external-access onboarding workflow I worked on.
+This is a sanitized PowerShell demo based on a real external-access onboarding workflow I worked on.
 
-## Project Background
+## What This Does
 
-The original script replaced a student / learner onboarding process inside a healthcare IT environment. Before the automation, onboarding required a lot of manual checking, account work, access review, reporting, and handoffs between systems and teams.
+The original problem was normal IT work at scale: take an external learner export, figure out what account and access work was needed, avoid duplicate or wrong accounts, and create outputs other teams could use.
 
-I worked on the script over months, testing and fine-tuning it as edge cases showed up. By the end, it automated nearly everything in that onboarding workflow: reading the source export, finding or creating the right account path, planning access, handling dates, preparing output files, and creating the information other teams needed to finish their part.
+I worked on the original script over time as edge cases showed up. It handled the full flow: read the source export, merge repeated rows, match existing accounts, plan create/re-enable/update actions, handle dates, prepare mailbox and access work, and write handoff files.
 
-This public version is not the private production script. It is a cleaned and sanitized version that keeps the structure and thinking behind the original while replacing every workplace-specific system, name, path, group, ticket, and domain with fake examples.
+This public version is not the private production script. It keeps the structure and thinking while replacing workplace-specific systems, names, paths, groups, tickets, and domains with fake examples.
 
-## Real-World Impact
+## The Problem It Solves
 
-The original workflow ran live in a healthcare IT environment and replaced a full student / learner onboarding process. It handled high-volume onboarding periods where hundreds of learner records could be processed in a day and thousands across a month.
-
-The value was not just speed. It reduced repeated manual work for the application team by turning CSV-based intake into a repeatable workflow that could plan accounts, group membership, mailbox needs, ServiceNow-style task handoffs, notification emails, and review reports from the same source data.
-
-In an interview, I would describe this as a PowerShell automation project that replaced a manual onboarding system, supported high-volume healthcare onboarding, and reduced a large amount of repeated account and access work by coordinating the process across multiple systems.
-
-## The Problem It Solved
-
-The original problem was not just "read a CSV and make users." It had to deal with the messy parts of learner onboarding from an outside source system:
+The problem was not just "read a CSV and make users." The workflow had to deal with the messy parts of onboarding from an outside source system:
 
 - one person showing up on multiple CSV rows because they needed multiple access types
 - matching people back to existing directory accounts by an external ID, access ID, or email
@@ -32,7 +24,7 @@ The original problem was not just "read a CSV and make users." It had to deal wi
 - creating ServiceNow-style task summaries and notification email drafts
 - writing exports and draft notes so other teams could review the work
 
-This public version keeps that workflow, but all workplace details were replaced with fake data. It does **not** connect to Active Directory, Microsoft 365, Entra ID, ticketing tools, email, file shares, or any real system.
+This demo keeps that workflow, but all workplace details are replaced with fake data. It does **not** connect to Active Directory, Microsoft 365, Entra ID, ticketing tools, email, file shares, or any real system.
 
 ## Workflow
 
@@ -54,7 +46,7 @@ flowchart TD
     K --> L["Simulate the apply step"]
 ```
 
-## What This Shows
+## What It Handles
 
 - PowerShell scripting for real IT admin workflow problems
 - CSV import and validation
@@ -73,9 +65,11 @@ flowchart TD
 - report exports in CSV, JSON, Markdown, and log formats
 - a safe simulation mode before any real changes would happen
 
-## Original Workflow Scope
+## What Was Changed For The Demo
 
-The original production version was much larger and more connected than this public demo. Based on the private script structure, it included:
+The original version was larger and connected to real systems. This demo keeps the planning shape while turning system actions into local reports and simulation output.
+
+The original workflow pattern included:
 
 - directory lookups and account updates
 - account re-enable logic
@@ -92,18 +86,18 @@ The original production version was much larger and more connected than this pub
 - notification preparation
 - logging for testing and review
 
-That is why this project is written as a workflow engine instead of a tiny one-off helper script.
+That is why this project is written more like a small workflow engine than a one-off helper script.
 
-## DevOps / Automation Interview Angle
+## What This Shows
 
-This project is useful to discuss in a DevOps interview because it shows more than basic scripting syntax:
+This project shows more than basic PowerShell syntax:
 
 - I took a manual operational process and turned it into a repeatable automation workflow.
 - I designed around messy CSV input, duplicate records, missing values, date issues, and unclear flags.
 - I separated planning from action so the workflow could be reviewed before touching accounts.
 - I coordinated work across identity, email, service desk, application access, group membership, and reporting.
 - I added logs and exports so runs could be checked after execution.
-- I sanitized the public version by replacing private integrations with fake data, local reports, and simulation output.
+- private integrations were replaced with fake data, local reports, and simulation output
 
 ## What To Review First
 
@@ -113,9 +107,8 @@ If you are reviewing this as a portfolio project, start with:
 2. `examples/external-access-export.csv` for fake source data.
 3. `examples/sample-output/external-access-plan.csv` for the merged plan.
 4. `tests/Run-DemoCheck.ps1` for the validation check.
-5. `docs/interview-notes.md` for the short explanation of the real-world value.
 
-## Why I Think This Is Useful
+## Why I Think This Is Worth Showing
 
 This is closer to the kind of automation that actually happens in IT: a source system gives you imperfect data, different teams need different outputs, and the script has to be careful before anything touches accounts.
 
@@ -177,8 +170,6 @@ The most useful files to open are:
 - `exchange-mailbox-plan.csv` for Exchange/mailbox work
 - `service-desk-handoff-plan.csv` for ServiceNow-style handoff work
 - `notification-drafts.md` for the fake downstream notes
-
-For interview prep, also see `docs/interview-notes.md`.
 
 ## What It Creates
 
