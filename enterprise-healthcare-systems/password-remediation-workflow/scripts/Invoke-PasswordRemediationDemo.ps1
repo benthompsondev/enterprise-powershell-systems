@@ -353,7 +353,8 @@ function New-ReviewWarningList {
         [Parameter(Mandatory)]$Row,
         [string]$Category,
         [string]$CycleMode,
-        $DirectoryUser
+        $DirectoryUser,
+        [bool]$Compliant
     )
 
     $warnings = @()
@@ -372,7 +373,7 @@ function New-ReviewWarningList {
     if (-not $DirectoryUser -or [string]::IsNullOrWhiteSpace($DirectoryUser.ManagerEmail)) {
         $warnings += "Manager email missing from mock directory"
     }
-    if ($CycleMode -eq "ForceReset" -and $Category -eq "StandardAccount") {
+    if ($CycleMode -eq "ForceReset" -and $Category -eq "StandardAccount" -and -not $Compliant) {
         $warnings += "Final pass would require password change at next logon"
     }
 
@@ -421,7 +422,7 @@ function New-RemediationPlan {
             }
         }
 
-        $warnings = @(New-ReviewWarningList -Row $row -Category $category -CycleMode $cycleMode -DirectoryUser $directoryUser)
+        $warnings = @(New-ReviewWarningList -Row $row -Category $category -CycleMode $cycleMode -DirectoryUser $directoryUser -Compliant $compliant)
 
         $plan += [pscustomobject]@{
             EmployeeId         = $row.EmployeeId

@@ -6,6 +6,16 @@ The original was not just a CSV mailer. It was a stateful workflow that took a r
 
 This public version does not connect to Active Directory, SMTP, file shares, scheduled tasks, or any real system. It uses fake CSV files, mock directory data, local state, local reports, and simulation logs.
 
+I used a coding agent to help turn the workflow into a sanitized GitHub demo. The private details were removed, but the important parts of the system were kept: the state file, weekly cycle, account re-checks, guardrails, logs, archive behavior, and final reset planning.
+
+## Why I Built This
+
+This started from a practical problem: a security team could identify weak or non-compliant passwords, but the follow-up process still took repeated manual tracking.
+
+Someone had to track the same list across multiple weeks, send reminders, check whether users had changed passwords, avoid bothering users who had already fixed the issue, and eventually force a password change for users who stayed non-compliant.
+
+The goal was to make that process consistent and repeatable without turning it into a risky "email everyone in the CSV" script.
+
 ## What This Does
 
 - converts a raw weak-password export into the automation input format
@@ -26,6 +36,14 @@ This public version does not connect to Active Directory, SMTP, file shares, sch
 
 Password remediation is risky if it is handled as a simple script that emails every row every time. That can create repeated messages, miss users who already fixed the issue, advance a cycle after a failed run, or trigger final action too early.
 
+The workflow this demo is based on followed a three-week cycle:
+
+- Week 1: first reminder
+- Week 2: final reminder
+- Week 3: force password change at next logon for users still non-compliant
+
+Each pass checks directory data again. If a user changed their password after the first reminder, the next run sees that and stops emailing or processing them.
+
 The useful part of this system is the guardrails:
 
 - one active input file
@@ -36,6 +54,12 @@ The useful part of this system is the guardrails:
 - test/simulation modes
 - audit logs and snapshots
 - archive evidence after completion
+
+## Business Value
+
+This reduces manual follow-up work, makes the remediation cycle easier to trust, and lowers the chance of common mistakes: emailing someone who already fixed the issue, missing someone who stayed non-compliant, or losing track of which week the process is in.
+
+For a support or security team, the useful output is not just the final action. It is the repeatable paper trail: what file was processed, which pass ran, who was skipped, who became compliant, what would be sent, and what was archived when the cycle finished.
 
 ## Workflow
 
