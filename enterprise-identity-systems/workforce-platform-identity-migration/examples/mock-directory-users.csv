@@ -1,0 +1,7 @@
+SamAccountName,DisplayName,EmployeeId,ProfessionalLicenseId,Enabled,OU,Groups,MailboxEnabled,LicenseAssigned,LastLogonDaysAgo,TerminationMarker
+mchen,Morgan Chen,E1002,,False,"OU=Terminated,OU=Users,DC=example,DC=local","Domain Users",False,False,180,False
+spatel,Sam Patel,E1003,LIC-7788,True,"OU=WorkforcePlatform,OU=ProjectAccounts,DC=example,DC=local","Domain Users;Clinical-App",False,False,12,False
+jnorth,Jamie North,E1004,,True,"OU=WorkforcePlatform,OU=ProjectAccounts,DC=example,DC=local","Domain Users",False,False,2,True
+clee,Casey Lee,E1005,,True,"OU=Users,DC=example,DC=local","Domain Users;Standard-Apps;MFA-Required",True,True,6,False
+jblake,Jordan Blake,M9001,,True,"OU=Managers,DC=example,DC=local","Domain Users;Managers",True,True,4,False
+spatel2,Sam Patel,E9999,LIC-9999,True,"OU=Users,DC=example,DC=local","Domain Users",True,True,60,False

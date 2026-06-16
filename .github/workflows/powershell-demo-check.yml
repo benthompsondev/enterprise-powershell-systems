@@ -44,6 +44,19 @@ jobs:
           Set-Location "enterprise-endpoint-systems/browser-bookmark-migration"
           ./tests/Run-DemoCheck.ps1
 
+  workforce-platform-identity-migration-demo:
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Run workforce platform identity migration demo check
+        shell: pwsh
+        run: |
+          Set-Location "enterprise-identity-systems/workforce-platform-identity-migration"
+          ./tests/Run-DemoCheck.ps1
+
   workstation-migration-state-demo:
     runs-on: windows-latest
 

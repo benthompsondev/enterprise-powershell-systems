@@ -1,0 +1,6 @@
+WorkerId,DisplayName,SamAccountName,EmployeeId,ProfessionalLicenseId,ManagerName,Title,Department,WorkdayId,RequestedAction
+WID-1001,Alex Rivera,,E1001,,Jordan Blake,Payroll Analyst,Finance,WD-9001,Create
+WID-1002,Morgan Chen,mchen,E1002,,Taylor Grey,Clinical Trainer,Education,WD-9002,Reenable
+WID-1003,Sam Patel,spatel,E1003,LIC-7788,Jordan Blake,Physician,Medical Affairs,WD-9003,EmailLicense
+WID-1004,Jamie North,jnorth,E1004,,Taylor Grey,Former Contractor,Operations,WD-9004,Terminate
+WID-1005,Casey Lee,clee,E1005,,Taylor Grey,Project Support,Operations,WD-9005,Review

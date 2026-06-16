@@ -1,0 +1,4 @@
+SamAccountName,DisplayName,RequestedAction
+spatel,Sam Patel,EnableMailboxLicense
+mchen,Morgan Chen,EnableMailboxLicense
+jnorth,Jamie North,Terminate
