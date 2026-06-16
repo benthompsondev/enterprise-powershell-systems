@@ -15,7 +15,8 @@ If you are reviewing this quickly, open these in order:
 1. [Learner Onboarding Automation](enterprise-healthcare-systems/learner-onboarding-automation/) - the larger account/access planning workflow.
 2. [Password Remediation Workflow](enterprise-healthcare-systems/password-remediation-workflow/) - the stateful security follow-up workflow.
 3. [Browser Bookmark Migration Utility](enterprise-endpoint-systems/browser-bookmark-migration/) - the endpoint migration workflow.
-4. `.github/workflows/powershell-demo-check.yml` - the GitHub Actions check that runs the demos.
+4. [Workstation Migration State Toolkit](enterprise-endpoint-systems/workstation-migration-state-toolkit/) - the device replacement workflow.
+5. `.github/workflows/powershell-demo-check.yml` - the GitHub Actions check that runs the demos.
 
 The fastest proof that the repo works is the green GitHub Actions badge above. The fastest local check is:
 
@@ -23,6 +24,7 @@ The fastest proof that the repo works is the green GitHub Actions badge above. T
 powershell -ExecutionPolicy Bypass -File .\enterprise-healthcare-systems\learner-onboarding-automation\tests\Run-DemoCheck.ps1
 powershell -ExecutionPolicy Bypass -File .\enterprise-healthcare-systems\password-remediation-workflow\tests\Run-DemoCheck.ps1
 powershell -ExecutionPolicy Bypass -File .\enterprise-endpoint-systems\browser-bookmark-migration\tests\Run-DemoCheck.ps1
+powershell -ExecutionPolicy Bypass -File .\enterprise-endpoint-systems\workstation-migration-state-toolkit\tests\Run-DemoCheck.ps1
 ```
 
 ## What This Repo Is For
@@ -46,6 +48,7 @@ The pattern I want to show is simple:
 | Flagship | [Learner Onboarding Automation](enterprise-healthcare-systems/learner-onboarding-automation/) | Scheduled CSV ingest, source backup, account lifecycle planning, AD-style matching, Exchange/mailbox planning, group membership, upstream response exports, ServiceNow-style handoff, notification drafts, reports, and validation |
 | Flagship | [Password Remediation Workflow](enterprise-healthcare-systems/password-remediation-workflow/) | Security export conversion, stateful remediation cycles, mock directory checks, staged notifications, duplicate-run protection, audit output, and safe final reset planning |
 | Endpoint automation | [Browser Bookmark Migration Utility](enterprise-endpoint-systems/browser-bookmark-migration/) | Chrome-to-Edge bookmark migration, multi-user profile discovery, HTML backups, recursive bookmark handling, Edge merge without overwriting existing favorites, reporting, and a manual recovery path |
+| Endpoint automation | [Workstation Migration State Toolkit](enterprise-endpoint-systems/workstation-migration-state-toolkit/) | Old-device capture, new-device restore planning, printer/app/local group inventory, master tracking CSV, per-device evidence folders, and directory group/OU migration planning |
 
 ## What This Shows
 
@@ -71,6 +74,9 @@ Set-Location ..\password-remediation-workflow
 powershell -ExecutionPolicy Bypass -File .\tests\Run-DemoCheck.ps1
 
 Set-Location ..\..\enterprise-endpoint-systems\browser-bookmark-migration
+powershell -ExecutionPolicy Bypass -File .\tests\Run-DemoCheck.ps1
+
+Set-Location ..\workstation-migration-state-toolkit
 powershell -ExecutionPolicy Bypass -File .\tests\Run-DemoCheck.ps1
 ```
 
