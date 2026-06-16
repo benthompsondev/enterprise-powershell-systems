@@ -22,7 +22,7 @@ The pattern I want to show is simple:
 
 | Status | Project | What It Shows |
 | --- | --- | --- |
-| Flagship | [Learner Onboarding Automation](enterprise-healthcare-systems/learner-onboarding-automation/) | CSV ingest, account lifecycle planning, AD-style matching, Exchange/mailbox planning, group membership, ServiceNow-style handoff, notification drafts, reports, and validation |
+| Flagship | [Learner Onboarding Automation](enterprise-healthcare-systems/learner-onboarding-automation/) | Scheduled CSV ingest, source backup, account lifecycle planning, AD-style matching, Exchange/mailbox planning, group membership, upstream response exports, ServiceNow-style handoff, notification drafts, reports, and validation |
 | Flagship | [Password Remediation Workflow](enterprise-healthcare-systems/password-remediation-workflow/) | Security export conversion, stateful remediation cycles, mock directory checks, staged notifications, duplicate-run protection, audit output, and safe final reset planning |
 
 ## Quick Verification

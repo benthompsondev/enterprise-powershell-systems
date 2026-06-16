@@ -1,0 +1,9 @@
+﻿{
+    "RunProfile":  "RunA",
+    "SourceFile":  "external-access-export.csv",
+    "ExampleInputPath":  "\\\\fileserver\\Automation\\Input\\RunA\\external-access-export.csv",
+    "ExampleBackupFolder":  "\\\\fileserver\\Automation\\Backup\\2026-06-16",
+    "LocalBackupFolder":  "backup-2026-06-16",
+    "SelectedAt":  "2026-06-16 09:47:05",
+    "Notes":  "Demo manifest only. No network share was read or written."
+}

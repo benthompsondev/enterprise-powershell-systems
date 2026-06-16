@@ -12,6 +12,13 @@ param(
     [string]$OutputDirectory = ".\output",
 
     [Parameter()]
+    [string]$BackupDirectory,
+
+    [Parameter()]
+    [ValidateSet("Auto", "RunA", "RunB", "RunC", "RunD", "Manual")]
+    [string]$RunProfile = "Manual",
+
+    [Parameter()]
     [ValidateSet("ValidateOnly", "PlanOnly", "SimulateApply")]
     [string]$Mode = "PlanOnly",
 
@@ -130,6 +137,38 @@ function Get-UniqueFileName {
     }
 
     return $candidate
+}
+
+function Resolve-DemoRunProfile {
+    param([Parameter(Mandatory)][string]$RequestedProfile)
+
+    if ($RequestedProfile -ne "Auto") {
+        return $RequestedProfile
+    }
+
+    $hour = (Get-Date).Hour
+    if ($hour -lt 9) { return "RunA" }
+    if ($hour -lt 12) { return "RunB" }
+    if ($hour -lt 15) { return "RunC" }
+    return "RunD"
+}
+
+function New-RunProfileManifest {
+    param(
+        [Parameter(Mandatory)][string]$RunProfile,
+        [Parameter(Mandatory)][string]$CsvPath,
+        [Parameter(Mandatory)][string]$BackupDirectory
+    )
+
+    return [pscustomobject]@{
+        RunProfile          = $RunProfile
+        SourceFile          = [System.IO.Path]::GetFileName($CsvPath)
+        ExampleInputPath    = "\\fileserver\Automation\Input\$RunProfile\external-access-export.csv"
+        ExampleBackupFolder = "\\fileserver\Automation\Backup\$((Get-Date).ToString('yyyy-MM-dd'))"
+        LocalBackupFolder   = [System.IO.Path]::GetFileName($BackupDirectory)
+        SelectedAt          = (Get-Date).ToString("yyyy-MM-dd HH:mm:ss")
+        Notes               = "Demo manifest only. No network share was read or written."
+    }
 }
 
 function ConvertTo-CleanString {
@@ -856,6 +895,53 @@ function New-NotificationDraft {
     return $lines
 }
 
+function New-UpstreamResponseRows {
+    param([Parameter(Mandatory)]$Plan)
+
+    $responseRows = New-Object System.Collections.Generic.List[object]
+
+    foreach ($item in $Plan) {
+        $accessTypes = Split-AccessTypeList -Value $item.AccessTypes
+        $isFirstAccessRow = $true
+
+        foreach ($accessType in $accessTypes) {
+            $accessId = switch ($accessType) {
+                "Network Login" { $item.SamAccountName; break }
+                "Email" { $item.UserPrincipalName; break }
+                default { $item.SamAccountName }
+            }
+
+            $status = if ([string]::IsNullOrWhiteSpace($item.ReviewWarnings)) {
+                "Closed Complete"
+            } else {
+                "Work in Progress"
+            }
+
+            $passwordStatus = if ($isFirstAccessRow) {
+                $item.TemporaryPasswordStatus
+            } else {
+                "Included on first response row only"
+            }
+
+            $responseRows.Add([pscustomobject]@{
+                ExternalPersonId = $item.ExternalPersonId
+                TicketId          = $item.TicketId
+                AccessType        = $accessType
+                AccessId          = $accessId
+                PasswordStatus    = $passwordStatus
+                Status            = $status
+                Comments          = $item.Comments
+                ActivationDate    = $item.ActivationDate
+                DeactivationDate  = $item.DeactivationDate
+            })
+
+            $isFirstAccessRow = $false
+        }
+    }
+
+    return $responseRows
+}
+
 function Export-WorkflowReports {
     param(
         [Parameter(Mandatory)]$Plan,
@@ -869,6 +955,7 @@ function Export-WorkflowReports {
     $directoryPlanCsv = Get-UniqueFileName -Directory $Directory -BaseName "directory-action-plan" -Extension ".csv"
     $mailboxPlanCsv = Get-UniqueFileName -Directory $Directory -BaseName "exchange-mailbox-plan" -Extension ".csv"
     $serviceDeskPlanCsv = Get-UniqueFileName -Directory $Directory -BaseName "service-desk-handoff-plan" -Extension ".csv"
+    $upstreamResponseCsv = Get-UniqueFileName -Directory $Directory -BaseName "upstream-response-export" -Extension ".csv"
     $notificationDraft = Get-UniqueFileName -Directory $Directory -BaseName "notification-drafts" -Extension ".md"
 
 # Write several report shapes because different readers need different views:
@@ -892,17 +979,21 @@ function Export-WorkflowReports {
         Select-Object TicketId, ExternalPersonId, DisplayName, AccessTypes, ServiceNowTaskSummary, ServiceDeskActions, EmailNotificationActions, ReviewWarnings, Comments |
         Export-Csv -NoTypeInformation -LiteralPath $serviceDeskPlanCsv
 
+    New-UpstreamResponseRows -Plan $Plan |
+        Export-Csv -NoTypeInformation -LiteralPath $upstreamResponseCsv
+
     New-NotificationDraft -Plan $Plan -Tenant $Tenant |
         Set-Content -LiteralPath $notificationDraft -Encoding UTF8
 
     return [pscustomobject]@{
-        PlanCsv           = $planCsv
-        PlanJson          = $planJson
-        AccessSummaryCsv  = $accessSummaryCsv
-        DirectoryPlanCsv  = $directoryPlanCsv
-        MailboxPlanCsv    = $mailboxPlanCsv
+        PlanCsv            = $planCsv
+        PlanJson           = $planJson
+        AccessSummaryCsv   = $accessSummaryCsv
+        DirectoryPlanCsv   = $directoryPlanCsv
+        MailboxPlanCsv     = $mailboxPlanCsv
         ServiceDeskPlanCsv = $serviceDeskPlanCsv
-        NotificationDraft = $notificationDraft
+        UpstreamResponseCsv = $upstreamResponseCsv
+        NotificationDraft   = $notificationDraft
     }
 }
 
@@ -929,8 +1020,26 @@ function Invoke-SimulatedApply {
 $OutputDirectory = $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($OutputDirectory)
 New-SafeDirectory -Path $OutputDirectory
 
+if (-not $BackupDirectory) {
+    $BackupDirectory = Join-Path $OutputDirectory ("backup-{0}" -f (Get-Date -Format "yyyy-MM-dd"))
+}
+$BackupDirectory = $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($BackupDirectory)
+New-SafeDirectory -Path $BackupDirectory
+
+$resolvedRunProfile = Resolve-DemoRunProfile -RequestedProfile $RunProfile
+$sourceBackupPath = Get-UniqueFileName -Directory $BackupDirectory -BaseName ([System.IO.Path]::GetFileNameWithoutExtension($CsvPath)) -Extension ([System.IO.Path]::GetExtension($CsvPath))
+Copy-Item -LiteralPath $CsvPath -Destination $sourceBackupPath
+
+$runManifestPath = Get-UniqueFileName -Directory $OutputDirectory -BaseName "run-profile-manifest" -Extension ".json"
+New-RunProfileManifest -RunProfile $resolvedRunProfile -CsvPath $CsvPath -BackupDirectory $BackupDirectory |
+    ConvertTo-Json -Depth 4 |
+    Set-Content -LiteralPath $runManifestPath -Encoding UTF8
+
 $runLog = Get-UniqueFileName -Directory $OutputDirectory -BaseName "run-log" -Extension ".txt"
 Write-DemoLog -Path $runLog -Message "Starting external access onboarding demo in $Mode mode"
+Write-DemoLog -Path $runLog -Message "Run profile: $resolvedRunProfile"
+Write-DemoLog -Path $runLog -Message "Source CSV backed up to $([System.IO.Path]::GetFileName($sourceBackupPath))"
+Write-DemoLog -Path $runLog -Message "Run manifest written to $([System.IO.Path]::GetFileName($runManifestPath))"
 
 # Load the source export and the fake directory snapshot separately so the
 # current account state is easy to reason about.
@@ -991,7 +1100,9 @@ Write-Output "Access summary written to $($reports.AccessSummaryCsv)"
 Write-Output "Directory action plan written to $($reports.DirectoryPlanCsv)"
 Write-Output "Exchange/mailbox plan written to $($reports.MailboxPlanCsv)"
 Write-Output "Service desk handoff plan written to $($reports.ServiceDeskPlanCsv)"
+Write-Output "Upstream response export written to $($reports.UpstreamResponseCsv)"
 Write-Output "Notification drafts written to $($reports.NotificationDraft)"
+Write-Output "Run profile manifest written to $runManifestPath"
 Write-Output "Run log written to $runLog"
 
 if ($Mode -eq "SimulateApply") {

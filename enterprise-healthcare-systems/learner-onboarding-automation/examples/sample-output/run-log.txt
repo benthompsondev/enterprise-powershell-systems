@@ -1,1 +1,4 @@
-﻿2026-05-12 06:57:22 [INFO] Starting external access onboarding demo in SimulateApply mode
+﻿2026-06-16 09:47:05 [INFO] Starting external access onboarding demo in SimulateApply mode
+2026-06-16 09:47:05 [INFO] Run profile: RunA
+2026-06-16 09:47:05 [INFO] Source CSV backed up to external-access-export.csv
+2026-06-16 09:47:05 [INFO] Run manifest written to run-profile-manifest.json

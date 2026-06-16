@@ -9,6 +9,8 @@
 The original script replaced a student / learner onboarding process and was tested and tuned as edge cases showed up. This sanitized version keeps the useful workflow shape while removing private details:
 
 - import an external access CSV
+- preserve scheduled-run context with a fake run profile
+- make a local backup copy of the source export
 - validate required fields before doing anything else
 - merge multiple access rows for the same person
 - look for an existing account using fake directory data
@@ -21,8 +23,9 @@ The original script replaced a student / learner onboarding process and was test
 - split planned work into directory, Exchange/mailbox, and service desk handoff reports
 - preserve the group membership, email notification, and ServiceNow-style task handoff pattern
 - create CSV/JSON reports
+- create a fake upstream response CSV with one row per access request
 - create fake notification drafts
-- create a log for review
+- create a run manifest and local log for review
 - simulate the apply step without touching real systems
 
 ## What The Private Script Showed
@@ -35,6 +38,8 @@ Without exposing private details, the original showed a lot of real work:
 - it shaped source rows into custom user/access objects
 - it generated passwords for planned new accounts
 - it formatted output for downstream review
+- it produced response rows for the upstream workflow
+- it selected scheduled input runs and backed up files for audit/recovery
 - it coordinated directory, mailbox, and service desk style work
 - it planned group membership and application access from CSV flags
 - it prepared notification details for other teams
@@ -74,6 +79,8 @@ The public placeholders are:
 This shows more than a small helper script. It represents an automation project that replaced a manual learner onboarding process and automated a lot of the repeated account/access work around it.
 
 The public version keeps the workflow pattern in generic terms while removing the private organization name, real system names, real routing, and real data.
+
+I used a coding agent to help package this as a public-safe demo, but the goal was to preserve the original workflow shape rather than flatten it into a toy example.
 
 It shows that I worked through a real onboarding automation problem with moving parts:
 

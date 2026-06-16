@@ -2,13 +2,13 @@
 
 These are fake draft notes. The script does not send email or create tickets.
 
-## Avery Johnson (Training)
+## Demo Alpha (Training)
 
-Subject: External access onboarding for Avery Johnson (Training) [EXT-10001]
+Subject: External access onboarding for Demo Alpha (Training) [EXT-10001]
 
 Tenant: Example Organization
 Ticket: REQ-10001
-Account: ajohnson1
+Account: dalpha1
 Program: Medical Education
 Service: General Medicine
 Training level: Resident
@@ -22,13 +22,13 @@ Service desk plan: Prepare ServiceNow-style ticket update;Include account, acces
 Review warnings: Network login requested without an access ID from the source export;Multiple source rows were merged for this person
 Planned actions: Add training license group;Create new directory account;Create or update directory account;Enable or confirm mailbox;Grant training app access;Prepare notification email draft;Prepare ServiceNow-style task handoff;Set generated temporary password
 
-## Morgan Lee
+## Demo Bravo
 
-Subject: External access onboarding for Morgan Lee [EXT-10002]
+Subject: External access onboarding for Demo Bravo [EXT-10002]
 
 Tenant: Example Organization
 Ticket: REQ-10002
-Account: mlee-training
+Account: dbravo-training
 Program: Nursing Education
 Service: Emergency
 Training level: Student
@@ -42,13 +42,13 @@ Service desk plan: Prepare ServiceNow-style ticket update;Include account, acces
 Review warnings: Multiple source rows were merged for this person
 Planned actions: Create or update directory account;Grant shared drive access;Prepare notification email draft;Prepare ServiceNow-style task handoff;Re-enable existing directory account;Update account dates and training attributes
 
-## Jordan Patel
+## Demo Charlie
 
-Subject: External access onboarding for Jordan Patel [EXT-10003]
+Subject: External access onboarding for Demo Charlie [EXT-10003]
 
 Tenant: Example Organization
 Ticket: REQ-10003
-Account: jpatel
+Account: dcharlie
 Program: Clinical Rotation
 Service: Surgery
 Training level: Fellow
@@ -62,13 +62,13 @@ Service desk plan: Prepare ServiceNow-style ticket update;Include account, acces
 Review warnings: Network login requested without an access ID from the source export
 Planned actions: Add training license group;Create new directory account;Create or update directory account;Enable or confirm mailbox;Prepare notification email draft;Prepare ServiceNow-style task handoff;Review remote access requirement;Set generated temporary password
 
-## Riley Chen
+## Demo Delta
 
-Subject: External access onboarding for Riley Chen [EXT-10004]
+Subject: External access onboarding for Demo Delta [EXT-10004]
 
 Tenant: Example Organization
 Ticket: REQ-10004
-Account: rchen
+Account: ddelta
 Program: Research
 Service: Cardiology
 Training level: Research Assistant
