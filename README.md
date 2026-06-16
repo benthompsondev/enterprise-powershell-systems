@@ -1,8 +1,25 @@
 # Enterprise PowerShell Systems
 
+[![PowerShell demo checks](https://github.com/benthompsondev/enterprise-powershell-systems/actions/workflows/powershell-demo-check.yml/badge.svg)](https://github.com/benthompsondev/enterprise-powershell-systems/actions/workflows/powershell-demo-check.yml)
+
 This repo contains sanitized PowerShell examples based on real IT automation work.
 
 The focus is practical systems work: messy CSV inputs, account and access planning, Microsoft 365 / Exchange-style handoffs, endpoint support, reporting, validation, and output another admin can review.
+
+## Start Here
+
+If you are reviewing this quickly, open these in order:
+
+1. [Learner Onboarding Automation](enterprise-healthcare-systems/learner-onboarding-automation/) - the larger account/access planning workflow.
+2. [Password Remediation Workflow](enterprise-healthcare-systems/password-remediation-workflow/) - the stateful security follow-up workflow.
+3. `.github/workflows/powershell-demo-check.yml` - the GitHub Actions check that runs both demos.
+
+The fastest proof that the repo works is the green GitHub Actions badge above. The fastest local check is:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\enterprise-healthcare-systems\learner-onboarding-automation\tests\Run-DemoCheck.ps1
+powershell -ExecutionPolicy Bypass -File .\enterprise-healthcare-systems\password-remediation-workflow\tests\Run-DemoCheck.ps1
+```
 
 ## What This Repo Is For
 
@@ -24,6 +41,18 @@ The pattern I want to show is simple:
 | --- | --- | --- |
 | Flagship | [Learner Onboarding Automation](enterprise-healthcare-systems/learner-onboarding-automation/) | Scheduled CSV ingest, source backup, account lifecycle planning, AD-style matching, Exchange/mailbox planning, group membership, upstream response exports, ServiceNow-style handoff, notification drafts, reports, and validation |
 | Flagship | [Password Remediation Workflow](enterprise-healthcare-systems/password-remediation-workflow/) | Security export conversion, stateful remediation cycles, mock directory checks, staged notifications, duplicate-run protection, audit output, and safe final reset planning |
+
+## What This Shows
+
+These projects are meant to show how I think through operations automation:
+
+- take a messy input file seriously
+- validate before planning
+- separate planning from action
+- write output another admin can review
+- keep logs and sample reports
+- use fake data so the workflow can be shared safely
+- add demo checks so the repo is not just a folder of scripts
 
 ## Quick Verification
 
