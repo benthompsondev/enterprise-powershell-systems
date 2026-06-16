@@ -2,9 +2,11 @@
 
 [![PowerShell demo checks](https://github.com/benthompsondev/enterprise-powershell-systems/actions/workflows/powershell-demo-check.yml/badge.svg)](https://github.com/benthompsondev/enterprise-powershell-systems/actions/workflows/powershell-demo-check.yml)
 
-This repo contains sanitized PowerShell examples based on real IT automation work.
+This is my main PowerShell portfolio repo. It contains sanitized systems, scripts, fixes, and automations inspired by real enterprise healthcare IT workflow problems I have worked on.
 
-The focus is practical systems work: messy CSV inputs, account and access planning, Microsoft 365 / Exchange-style handoffs, endpoint support, reporting, validation, and output another admin can review.
+The focus is practical systems work: messy CSV inputs, account and access planning, Microsoft 365 / Exchange-style handoffs, endpoint support, reporting, validation, logs, handoff files, and output another admin can review.
+
+These are public-safe demos. Private organizational details are removed and replaced with fake data, safe examples, and clear run steps.
 
 ## Start Here
 
@@ -25,7 +27,7 @@ powershell -ExecutionPolicy Bypass -File .\enterprise-healthcare-systems\passwor
 
 I work in healthcare IT and information systems. A lot of useful automation starts with a messy export, a manual checklist, and a process that needs to be safer and easier to repeat.
 
-These are not raw workplace scripts. They are cleaned demo versions that keep the useful pattern while replacing private systems, paths, domains, users, tickets, and organization details with fake data.
+These are not raw workplace scripts. They are cleaned demo versions that keep the useful architecture while replacing private systems, paths, domains, users, tickets, and organization details with fake data.
 
 The pattern I want to show is simple:
 
