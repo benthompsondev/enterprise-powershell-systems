@@ -5,7 +5,7 @@ Reports on accounts currently in a project OU using mock directory data.
 .DESCRIPTION
 This mirrors follow-up scripts used after account creation/re-enable work:
 export current project OU users, flag low-access disabled/terminated candidates,
-and give the project team a cleaner CSV for review.
+and give the project team a cleaner CSV/log package for go-live tracking.
 #>
 
 [CmdletBinding()]
@@ -47,10 +47,14 @@ $review = foreach ($user in $projectUsers) {
         DisplayName         = $user.DisplayName
         Enabled             = $user.Enabled
         OU                  = $user.OU
+        ProjectAction       = $user.ProjectAction
+        ProcessedByAutomation = $user.ProcessedByAutomation
+        ProcessedBatch      = $user.ProcessedBatch
         GroupCount          = $groups.Count
         MailboxEnabled      = $user.MailboxEnabled
         LicenseAssigned     = $user.LicenseAssigned
         LastLogonDaysAgo    = $user.LastLogonDaysAgo
+        GoLiveReady         = if ([string]$user.Enabled -eq "True" -and [string]$user.MailboxEnabled -eq "True" -and [string]$user.LicenseAssigned -eq "True" -and $risk -eq "NormalReview") { "True" } else { "False" }
         ReviewCategory      = $risk
         ReviewNote          = $note
     }
@@ -60,5 +64,11 @@ $review | Export-Csv -LiteralPath (Join-Path $OutputDirectory "project-ou-review
 $review | Group-Object ReviewCategory | ForEach-Object {
     [pscustomobject]@{ ReviewCategory = $_.Name; Count = $_.Count }
 } | Export-Csv -LiteralPath (Join-Path $OutputDirectory "project-ou-review-summary.csv") -NoTypeInformation
+$review | Group-Object ProjectAction | ForEach-Object {
+    [pscustomobject]@{ ProjectAction = $_.Name; Count = $_.Count }
+} | Export-Csv -LiteralPath (Join-Path $OutputDirectory "project-action-summary.csv") -NoTypeInformation
+$review | Group-Object GoLiveReady | ForEach-Object {
+    [pscustomobject]@{ GoLiveReady = $_.Name; Count = $_.Count }
+} | Export-Csv -LiteralPath (Join-Path $OutputDirectory "go-live-readiness-summary.csv") -NoTypeInformation
 
 "Reviewed $($review.Count) project OU account(s)." | Set-Content -LiteralPath (Join-Path $OutputDirectory "project-ou-review-run-log.txt")

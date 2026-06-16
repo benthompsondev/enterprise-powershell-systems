@@ -13,6 +13,7 @@ The key point is that the scripts did not just blindly create accounts. They pro
 - Disabled accounts were flagged because automation cannot always know whether a disabled account should really be re-enabled.
 - Account creation and re-enable paths were separated.
 - Follow-up reports helped the project team see what was completed and what still needed review.
+- The OU review script was run repeatedly to give the project team current CSV/log updates for tracking and go-live readiness.
 - Later scripts handled mailbox/license planning and termination cleanup.
 - The workflow produced logs and CSVs so the project team could track progress.
 

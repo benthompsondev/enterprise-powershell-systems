@@ -14,6 +14,7 @@ This project is a sanitized version of work-inspired identity automation for a W
 - project OU movement planning
 - manager, title, department, employee ID, professional ID, and workforce ID planning
 - project OU review reporting
+- recurring project update exports with action, batch, mailbox/license, and go-live readiness fields
 - mailbox/license action planning
 - termination review planning
 - CSV, JSON, summary, and log output

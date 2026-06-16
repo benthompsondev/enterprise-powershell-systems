@@ -48,13 +48,25 @@ The public version writes a plan instead of touching Active Directory.
 
 `scripts/Export-ProjectOuReviewDemo.ps1`
 
-Exports accounts currently in the project OU and flags accounts that may need review, such as:
+Exports accounts currently in the project OU and turns that into a project update package. In the real workflow, this was the recurring reporting piece: after accounts were created, re-enabled, moved, licensed, or reviewed, the project team needed fresh CSVs and logs showing where the account work stood.
+
+The report includes:
+
+- account enabled/disabled state
+- whether the account was processed by the migration automation
+- which project batch/wave it came from
+- what action was taken or planned
+- mailbox and license readiness
+- group count and review category
+- go-live readiness flag
+
+It also flags accounts that may need review, such as:
 
 - disabled accounts still in the project OU
 - accounts with very low group counts
 - accounts with recent login activity but a termination marker
 
-This mirrors the kind of follow-up script that becomes necessary when a large project dataset is not fully clean.
+This mirrors the kind of follow-up script that becomes necessary when a large project dataset is not fully clean. It gave the project team updated CSVs they could use for tracking, cleanup, go-live readiness, and follow-up conversations without manually checking every account.
 
 ### 4. Plan Mailbox, License, And Termination Work
 
@@ -80,6 +92,8 @@ messy project CSV -> validation -> account action plan -> OU review -> mailbox/l
 ```
 
 This mattered because the account work affected people, payroll/workforce workflows, and downstream project tracking. The scripts could process the data quickly, but they also made the limits clear: automation can match and report, but it cannot always know whether a disabled account was disabled for a valid business reason.
+
+The recurring OU review/reporting step was a big part of the value. After each run, updated CSVs and logs could show which accounts had been created, re-enabled, aligned to the project OU, still needed mailbox/licensing work, or needed manual review before go-live.
 
 ## Run The Demo
 
@@ -109,6 +123,7 @@ The test uses fake data only. It runs validation, account planning, project OU r
 - HR/workforce attribute planning
 - mailbox and license planning
 - termination review planning
+- recurring project OU exports for tracking and go-live readiness
 - clear reports before changes
 - safe mock data instead of real directory writes
 

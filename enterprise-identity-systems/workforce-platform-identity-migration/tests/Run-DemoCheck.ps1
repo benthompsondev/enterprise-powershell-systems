@@ -45,6 +45,9 @@ try {
     $ouReview = Import-Csv -LiteralPath (Join-Path $OuReviewOut "project-ou-review.csv")
     if (-not ($ouReview.ReviewCategory -contains "LowGroupCountReview")) { throw "Expected low-group-count review category" }
     if (-not ($ouReview.ReviewCategory -contains "RecentLogonAfterTerminationMarker")) { throw "Expected recent-logon termination review category" }
+    $ouReviewColumns = @($ouReview)[0].PSObject.Properties.Name
+    if (-not ($ouReviewColumns -contains "ProjectAction")) { throw "Expected OU review to include project action tracking" }
+    if (-not ($ouReviewColumns -contains "GoLiveReady")) { throw "Expected OU review to include go-live readiness tracking" }
 
     powershell -ExecutionPolicy Bypass -File (Join-Path $ProjectRoot "scripts\New-MailboxLicenseActionPlanDemo.ps1") `
         -ActionCsv $MailboxActionCsv `
@@ -59,6 +62,8 @@ try {
         (Join-Path $ValidationOut "validation-summary.csv"),
         (Join-Path $AccountOut "account-action-summary.csv"),
         (Join-Path $OuReviewOut "project-ou-review-summary.csv"),
+        (Join-Path $OuReviewOut "project-action-summary.csv"),
+        (Join-Path $OuReviewOut "go-live-readiness-summary.csv"),
         (Join-Path $MailboxOut "mailbox-license-summary.csv")
     )) {
         if (-not (Test-Path -LiteralPath $file)) { throw "Expected output file missing: $file" }
