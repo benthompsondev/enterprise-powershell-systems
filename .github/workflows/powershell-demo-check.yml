@@ -30,3 +30,16 @@ jobs:
         run: |
           Set-Location "enterprise-healthcare-systems/password-remediation-workflow"
           ./tests/Run-DemoCheck.ps1
+
+  browser-bookmark-migration-demo:
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Run browser bookmark migration demo check
+        shell: pwsh
+        run: |
+          Set-Location "enterprise-endpoint-systems/browser-bookmark-migration"
+          ./tests/Run-DemoCheck.ps1
