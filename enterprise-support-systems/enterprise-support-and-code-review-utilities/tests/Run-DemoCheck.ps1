@@ -27,6 +27,20 @@ try {
         }
     }
 
+    $expectedDocs = @(
+        "docs\code-review-notes.md",
+        "docs\code-review-template.md",
+        "docs\sanitized-review-examples.md",
+        "docs\sanitization-notes.md"
+    )
+
+    foreach ($doc in $expectedDocs) {
+        $path = Join-Path $ProjectRoot $doc
+        if (-not (Test-Path -LiteralPath $path)) {
+            throw "Expected documentation file was not found: $path"
+        }
+    }
+
     $dhcp = Import-Csv -LiteralPath (Join-Path $OutputDirectory "dhcp-reservation-review.csv")
     if (-not ($dhcp | Where-Object { $_.ReviewIssues -match "DuplicateRequestedIp" })) {
         throw "Expected DHCP review to flag a duplicate IP request."
