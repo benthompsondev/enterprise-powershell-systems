@@ -2,7 +2,7 @@
 
 This is a sanitized PowerShell toolkit based on scripts I wrote while helping move a large on-prem Exchange environment to O365.
 
-The real project was not one clean cutover. It ran in stages and had a lot of moving parts: users, shared mailboxes, public folders, licensing groups, workstation setup, phones, support calls, and mailbox issues that showed up only after a migration wave started.
+The real project was not one clean cutover. It ran in stages and had a lot of moving parts: thousands of users, hundreds of shared mailboxes, public folders, licensing groups, workstation setup, phones, support calls, and mailbox issues that showed up only after a migration wave started.
 
 My scripts were separate for a reason. Each one solved a different problem that kept coming up during the move from on-prem mail to O365:
 
@@ -121,6 +121,14 @@ Generated examples are included under `examples\sample-output\` so the project c
 - separate scripts for separate migration problems
 - review-first output before action
 - fake data and local files for safe sharing
+
+## What This Says About My Work
+
+This toolkit is probably the best example here of one big project being broken into smaller repeatable checks.
+
+The real work was not just "move mailboxes." It was figuring out who was ready, who was blocked, which shared mailboxes depended on users who had not moved yet, where license groups were missing or duplicated, what to do with public folders, and how to handle mailbox issues that kept coming back.
+
+I built separate scripts because the problems were separate. That made the output easier to trust, easier to explain, and easier for the project team to use during a long staged migration.
 
 ## Public Safety
 

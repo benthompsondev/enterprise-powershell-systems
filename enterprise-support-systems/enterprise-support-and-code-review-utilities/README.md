@@ -4,7 +4,7 @@ This folder is about the smaller support scripts and code review work I was doin
 
 Not every useful PowerShell project is a huge system. Some of the useful work was reviewing another team's script before it was used, writing safer versions, adding logging, explaining risk, or turning an ad hoc request into a CSV report someone else could actually use.
 
-I was one of the few active people helping with internal script/code review, so part of my role was acting as a second set of eyes for other teams. I would read the request, understand what the script was trying to do, check where it could fail, make the risky parts clearer, and send back practical feedback instead of just saying "approved" or "not approved."
+I was often the person reviewing scripts for other technical teams, and at times I was pretty much the only active reviewer. Part of my role was acting as a second set of eyes before a script was used. I would read the request, understand what the script was trying to do, check where it could fail, make the risky parts clearer, and send back practical feedback instead of just saying "approved" or "not approved."
 
 This public version keeps that story without exposing the private details. It uses fake data, local output files, sanitized review examples, and template-style documentation instead of raw emails, internal paths, hostnames, users, or production scripts.
 
@@ -114,9 +114,9 @@ The public version uses:
 
 The real email/code review context stays private. This repo only includes sanitized examples of the kind of review and support work involved.
 
-## What I Would Talk Through In An Interview
+## What I Would Point Out
 
-The main point I would talk through is not "I wrote four small scripts." It is that I was trusted to review and improve scripts before other teams used them.
+The main point I would point out is not "I wrote four small scripts." It is that I was trusted to review and improve scripts before other teams used them.
 
 For these kinds of reviews, I usually looked for:
 
@@ -128,3 +128,11 @@ For these kinds of reviews, I usually looked for:
 - places where a short comment or usage note would prevent mistakes later
 
 That is the part I wanted this project to show: practical review judgment, not just PowerShell syntax.
+
+## What This Says About My Work
+
+This folder shows the team-support side of my work.
+
+I was not only writing my own scripts. I was helping other technical teams make their scripts safer, clearer, and easier to test. That meant looking for missing validation, unclear risk, hard-coded values, weak logging, confusing output, or missing run instructions.
+
+I like this kind of work because it improves more than one script. If the feedback is clear, the next script that team writes is usually better too.

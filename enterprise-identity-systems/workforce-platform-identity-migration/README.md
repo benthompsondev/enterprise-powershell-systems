@@ -4,7 +4,7 @@ This is a sanitized PowerShell toolkit based on an identity cleanup and migratio
 
 Workday is an enterprise platform used for HR, workforce, payroll, finance, and employee data workflows. In a migration like that, directory data matters. If the wrong accounts are created, re-enabled, disabled, licensed, or missing mailbox access, the downstream project can get messy fast.
 
-The real work behind this demo started with imperfect project CSVs. The source data changed over time, some users already existed, some were disabled, some needed new accounts, some needed mailbox/licensing later, and some needed manual review because the script could not safely know the business context.
+The real work behind this demo started with imperfect project CSVs for a 1000+ user rollout. The source data changed over time, some users already existed, some were disabled, some needed new accounts, some needed mailbox/licensing later, and some needed manual review because the script could not safely know the business context.
 
 ## What This Toolkit Does
 
@@ -126,6 +126,14 @@ The test uses fake data only. It runs validation, account planning, project OU r
 - recurring project OU exports for tracking and go-live readiness
 - clear reports before changes
 - safe mock data instead of real directory writes
+
+## What This Says About My Work
+
+This project shows the identity side of automation: careful matching, review buckets, and useful project reporting.
+
+The important part was not pretending the source data was perfect. I built the flow so stable identifiers were checked first, disabled or ambiguous accounts were flagged, and project updates could be exported repeatedly as the rollout moved forward.
+
+That is the type of automation I trust more: it speeds up the repeatable work, but still admits when a row needs a person to review it.
 
 ## Public Safety
 

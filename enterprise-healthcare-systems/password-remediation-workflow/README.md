@@ -6,7 +6,7 @@ The original was not just a CSV mailer. It was a stateful workflow that took a r
 
 This public version does not connect to Active Directory, SMTP, file shares, scheduled tasks, or any real system. It uses fake CSV files, mock directory data, local state, local reports, and simulation logs.
 
-I used a coding agent to help turn the workflow into a sanitized GitHub demo. The private details were removed, but the important parts of the system were kept: the state file, weekly cycle, account re-checks, guardrails, logs, archive behavior, and final reset planning.
+The private details were removed for GitHub, but the important parts of the system were kept: the state file, monthly cycle, account re-checks, guardrails, logs, archive behavior, and final reset planning.
 
 ## Why I Built This
 
@@ -60,6 +60,14 @@ The useful part of this system is the guardrails:
 This reduces manual follow-up work, makes the remediation cycle easier to trust, and lowers the chance of common mistakes: emailing someone who already fixed the issue, missing someone who stayed non-compliant, or losing track of which week the process is in.
 
 For a support or security team, the useful output is not just the final action. It is the repeatable paper trail: what file was processed, which pass ran, who was skipped, who became compliant, what would be sent, and what was archived when the cycle finished.
+
+## What This Says About My Work
+
+This is a good example of me building around risk instead of just building around speed.
+
+A weak-password export is easy to mishandle. If a script blindly emails every row, it can annoy users who already fixed the problem, miss disabled or exempt accounts, or advance the process after a failed run. I built the workflow around state tracking, directory re-checks, duplicate-run protection, and audit output so the monthly process could run consistently without losing control of what happened.
+
+The useful part is the discipline: convert the intake, validate it, track the cycle, re-check live-style account data, write proof, then archive the evidence.
 
 ## Workflow
 

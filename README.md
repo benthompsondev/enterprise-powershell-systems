@@ -2,24 +2,27 @@
 
 [![PowerShell demo checks](https://github.com/benthompsondev/enterprise-powershell-systems/actions/workflows/powershell-demo-check.yml/badge.svg)](https://github.com/benthompsondev/enterprise-powershell-systems/actions/workflows/powershell-demo-check.yml)
 
-This is my main PowerShell portfolio repo. It contains sanitized systems, scripts, fixes, and automations inspired by real enterprise healthcare IT workflow problems I have worked on.
+This is my main PowerShell portfolio repo.
 
-The focus is practical systems work: messy CSV inputs, account and access planning, Microsoft 365 / Exchange-style handoffs, endpoint support, reporting, validation, logs, handoff files, and output another admin can review.
+The projects here are sanitized versions of real systems, scripts, fixes, and review workflows I worked on in a large multi-organization healthcare IT environment. The private details are removed, but the shape of the work is kept: messy CSVs, account and access planning, Microsoft 365 / Exchange migration support, endpoint migrations, reporting, validation, logs, and output another admin can review.
 
-These are public-safe demos. Private organizational details are removed and replaced with fake data, safe examples, and clear run steps.
+The bigger story is not "I wrote a few scripts." It is that I was turning repeated operational problems into safer, repeatable workflows. Some of that meant building automation myself. Some of it meant reviewing scripts for other technical teams, tightening the risky parts, and helping them improve their testing and run notes before the scripts were used.
+
+These are public-safe demos. They use fake data, local files, and simulated actions instead of raw workplace scripts, real users, private system names, internal paths, or production exports.
 
 ## Start Here
 
 If you are reviewing this quickly, open these in order:
 
-1. [Learner Onboarding Automation](enterprise-healthcare-systems/learner-onboarding-automation/) - the larger account/access planning workflow.
-2. [Password Remediation Workflow](enterprise-healthcare-systems/password-remediation-workflow/) - the stateful security follow-up workflow.
-3. [Workforce Platform Identity Migration Toolkit](enterprise-identity-systems/workforce-platform-identity-migration/) - the HR/payroll platform identity migration workflow.
-4. [Browser Bookmark Migration Utility](enterprise-endpoint-systems/browser-bookmark-migration/) - the endpoint migration workflow.
-5. [Workstation Migration State Toolkit](enterprise-endpoint-systems/workstation-migration-state-toolkit/) - the device replacement workflow.
-6. [O365 Migration Support Toolkit](enterprise-messaging-systems/o365-migration-readiness-toolkit/) - the Exchange/O365 migration support workflow.
-7. [Enterprise Support And Code Review Utilities](enterprise-support-systems/enterprise-support-and-code-review-utilities/) - the smaller support scripts and code review workflow.
-8. `.github/workflows/powershell-demo-check.yml` - the GitHub Actions check that runs the demos.
+1. [Learner Onboarding Automation](enterprise-healthcare-systems/learner-onboarding-automation/) - the most complete account/access workflow.
+2. [Password Remediation Workflow](enterprise-healthcare-systems/password-remediation-workflow/) - a monthly security follow-up system with state tracking.
+3. [Workstation Migration State Toolkit](enterprise-endpoint-systems/workstation-migration-state-toolkit/) - a hardware refresh workflow built for hundreds of device replacements.
+4. [O365 Migration Support Toolkit](enterprise-messaging-systems/o365-migration-readiness-toolkit/) - migration readiness checks for users, shared mailboxes, public folders, licensing, and mailbox repair.
+5. [Workforce Platform Identity Migration Toolkit](enterprise-identity-systems/workforce-platform-identity-migration/) - identity and account planning for a 1000+ user workforce platform rollout.
+6. [Browser Bookmark Migration Utility](enterprise-endpoint-systems/browser-bookmark-migration/) - a focused endpoint migration script built around avoiding user pain.
+7. [Enterprise Support And Code Review Utilities](enterprise-support-systems/enterprise-support-and-code-review-utilities/) - smaller support scripts plus sanitized examples of the code review work I did for other teams.
+8. [Repo Reviewer Guide](docs/reviewer-guide.md) - a short guide for what to look at first and what each system is meant to prove.
+9. `.github/workflows/powershell-demo-check.yml` - the GitHub Actions check that runs the demos.
 
 The fastest proof that the repo works is the green GitHub Actions badge above. The fastest local check is:
 
@@ -47,17 +50,30 @@ The pattern I want to show is simple:
 - handle duplicate rows, missing values, existing accounts, and unclear flags
 - keep logs and demo checks so the workflow can be trusted
 
+## The Through Line
+
+Across the repo, I am trying to show the same working style:
+
+- start with the real operational problem, not a perfect toy example
+- treat source data as messy until the script proves otherwise
+- plan and report before changing anything risky
+- make outputs clear enough for another admin or project team to review
+- build guardrails around account, mailbox, endpoint, and security work
+- keep fake/demo data public-safe without flattening the workflow into a tiny script
+- use GitHub Actions and local demo checks so the repo is more than static documentation
+- explain review feedback in normal language when helping other teams improve scripts
+
 ## Current Systems
 
 | Status | Project | What It Shows |
 | --- | --- | --- |
-| Flagship | [Learner Onboarding Automation](enterprise-healthcare-systems/learner-onboarding-automation/) | Scheduled CSV ingest, source backup, account lifecycle planning, AD-style matching, Exchange/mailbox planning, group membership, upstream response exports, ServiceNow-style handoff, notification drafts, reports, and validation |
-| Flagship | [Password Remediation Workflow](enterprise-healthcare-systems/password-remediation-workflow/) | Security export conversion, stateful remediation cycles, mock directory checks, staged notifications, duplicate-run protection, audit output, and safe final reset planning |
+| Core workflow | [Learner Onboarding Automation](enterprise-healthcare-systems/learner-onboarding-automation/) | Scheduled CSV ingest, source backup, account lifecycle planning, AD-style matching, Exchange/mailbox planning, group membership, upstream response exports, ServiceNow-style handoff, notification drafts, reports, and validation |
+| Core workflow | [Password Remediation Workflow](enterprise-healthcare-systems/password-remediation-workflow/) | Monthly security export conversion, stateful remediation cycles, mock directory checks, staged notifications, duplicate-run protection, audit output, and safe final reset planning |
 | Identity automation | [Workforce Platform Identity Migration Toolkit](enterprise-identity-systems/workforce-platform-identity-migration/) | Workday-style source validation, account creation/re-enable planning, project OU review, mailbox/license planning, termination review, and fake data reports |
 | Endpoint automation | [Browser Bookmark Migration Utility](enterprise-endpoint-systems/browser-bookmark-migration/) | Chrome-to-Edge bookmark migration, multi-user profile discovery, HTML backups, recursive bookmark handling, Edge merge without overwriting existing favorites, reporting, and a manual recovery path |
 | Endpoint automation | [Workstation Migration State Toolkit](enterprise-endpoint-systems/workstation-migration-state-toolkit/) | Old-device capture, new-device restore planning, printer/app/local group inventory, master tracking CSV, per-device evidence folders, and directory group/OU migration planning |
-| Messaging migration | [O365 Migration Support Toolkit](enterprise-messaging-systems/o365-migration-readiness-toolkit/) | On-prem Exchange to O365 user migration planning, shared mailbox migration gating, license group review, duplicate license cleanup, public folder archive/conversion planning, soft-deleted mailbox repair planning, and migration summary reports |
-| Support utilities | [Enterprise Support And Code Review Utilities](enterprise-support-systems/enterprise-support-and-code-review-utilities/) | Smaller support scripts plus sanitized code review packets for DHCP reservation review, web traffic simulation review, scheduled browser update review, Windows update troubleshooting, endpoint cleanup targeting, and security group audit exports |
+| Messaging migration | [O365 Migration Support Toolkit](enterprise-messaging-systems/o365-migration-readiness-toolkit/) | On-prem Exchange to O365 user migration planning across thousands of users, shared mailbox migration gating, license group review, duplicate license cleanup, public folder archive/conversion planning, soft-deleted mailbox repair planning, and migration summary reports |
+| Support and review | [Enterprise Support And Code Review Utilities](enterprise-support-systems/enterprise-support-and-code-review-utilities/) | Smaller support scripts plus sanitized code review packets for DHCP reservation review, web traffic simulation review, scheduled browser update review, Windows update troubleshooting, endpoint cleanup targeting, and security group audit exports |
 
 ## What This Shows
 
@@ -70,6 +86,8 @@ These projects are meant to show how I think through operations automation:
 - keep logs and sample reports
 - use fake data so the workflow can be shared safely
 - add demo checks so the repo is not just a folder of scripts
+
+It also shows a side of my work that is easy to miss from script names alone: I was often the person reviewing scripts for other technical teams. I helped turn "this script works on my machine" into something safer to run, easier to test, and easier for another team to understand.
 
 ## Quick Verification
 

@@ -130,6 +130,12 @@ powershell -ExecutionPolicy Bypass -File .\scripts\Invoke-BrowserBookmarkMigrati
 - CSV reporting and plain run logs
 - safe defaults for disruptive actions
 
+## What This Says About My Work
+
+This one is smaller than the migration toolkits, but it shows an important habit: I try to build automation around the user impact, not only the technical setting.
+
+The technical goal was browser standardization. The practical problem was avoiding lost bookmarks, avoidable tickets, and support frustration. That is why the script backs up first, preserves folder structure, merges instead of replacing, writes logs, and leaves a manual recovery path.
+
 ## What Was Changed For The Demo
 
 This is not a raw workplace script.

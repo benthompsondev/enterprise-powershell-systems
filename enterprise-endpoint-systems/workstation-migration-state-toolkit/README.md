@@ -2,7 +2,7 @@
 
 This is a sanitized three-script PowerShell toolkit for Windows workstation replacement projects.
 
-The real workflow was built for a large Windows 10 to Windows 11 hardware refresh where many devices needed to be replaced quickly and consistently. The goal was to make the process simple enough for external technicians to follow while still giving IT the tracking, logs, and review points needed to keep the migration under control.
+The real workflow was built for a large Windows 10 to Windows 11 hardware refresh where hundreds of devices needed to be replaced quickly and consistently. The goal was to make the process simple enough for external technicians to follow while still giving IT the tracking, logs, and review points needed to keep the migration under control.
 
 The useful idea is not flashy: capture the old device, restore what can be restored on the new device, then let IT handle the directory cleanup with a reviewable plan.
 
@@ -90,6 +90,14 @@ The test creates fake old-device data, runs all three scripts, and checks that t
 - directory group and OU migration planning
 - safe simulation instead of direct public Active Directory changes
 - logging, manifests, and per-device evidence folders
+
+## What This Says About My Work
+
+This project shows how I think about automation as a workflow, not just a script.
+
+The point was to make a large hardware refresh easier to run with mixed experience levels. External technicians could follow the device-side process, while IT still had per-device evidence folders, master tracking, logs, and reviewable plans for directory work.
+
+That matters because real migrations are not clean. The scripts had to help people move fast, but also leave enough evidence to troubleshoot missed printers, missing apps, local group differences, or directory cleanup later.
 
 ## Public Safety
 

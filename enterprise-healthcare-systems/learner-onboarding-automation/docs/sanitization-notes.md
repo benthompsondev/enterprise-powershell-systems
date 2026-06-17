@@ -80,7 +80,7 @@ This shows more than a small helper script. It represents an automation project 
 
 The public version keeps the workflow pattern in generic terms while removing the private organization name, real system names, real routing, and real data.
 
-I used a coding agent to help package this as a public-safe demo, but the goal was to preserve the original workflow shape rather than flatten it into a toy example.
+This was packaged as a public-safe demo with the goal of preserving the original workflow shape rather than flattening it into a toy example.
 
 It shows that I worked through a real onboarding automation problem with moving parts:
 

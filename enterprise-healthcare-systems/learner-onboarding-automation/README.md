@@ -10,7 +10,7 @@ I worked on the original script over time as edge cases showed up. It handled th
 
 This public version is not the private production script. It keeps the structure and thinking while replacing workplace-specific systems, names, paths, groups, tickets, and domains with fake examples.
 
-I used a coding agent to help package this into a sanitized GitHub demo. The private details were removed, but the important pieces stayed: scheduled-run context, CSV grouping, external ID matching, account lifecycle planning, access mapping, mailbox/license planning, response exports, backups, logs, and reviewable handoff files.
+The private details were removed for GitHub, but the important pieces stayed: scheduled-run context, CSV grouping, external ID matching, account lifecycle planning, access mapping, mailbox/license planning, response exports, backups, logs, and reviewable handoff files.
 
 ## The Problem It Solves
 
@@ -130,6 +130,14 @@ This is closer to the kind of automation that actually happens in IT: a source s
 For a portfolio, the value is not that this demo creates fake users. The value is that it shows the structure behind a production-style onboarding workflow: validate first, merge duplicate rows, make a plan, produce reviewable output, and only then simulate the changes.
 
 It also shows something important about real automation work: the hard part is not only writing commands. The hard part is handling messy input, weird exceptions, repeated records, existing accounts, date windows, audit needs, and handoffs without breaking the onboarding process.
+
+## What This Says About My Work
+
+This is the account/access workflow that best shows how I think through a real IT automation problem.
+
+The hard part was not just creating accounts. The hard part was taking an imperfect outside export and turning it into something safe enough for identity, mailbox, access, and service desk work. That meant grouping repeated rows, checking for existing accounts, separating create/re-enable/update paths, keeping dates clean, and writing outputs other teams could review.
+
+I built it around the idea that automation should make the process easier without hiding the risk. The script plans work, writes handoff files, creates logs, and leaves review points instead of pretending every row can be trusted.
 
 ## Run It
 

@@ -8,7 +8,7 @@
 
 The private source scripts had the shape of a larger weak-password remediation system: CSV conversion, one-active-file intake, directory lookups, JSON run state, scheduled multi-pass processing, staged notifications, exclusions, final reset planning, audit logs, snapshots, and archived evidence. This demo keeps that shape without exposing any real systems.
 
-This public version was packaged with help from a coding agent so it could be shared safely on GitHub. The goal was not to flatten the work into a toy script. The goal was to remove private identifiers while keeping the operational shape of the original automation.
+This public version was packaged so it could be shared safely on GitHub. The goal was not to flatten the work into a toy script. The goal was to remove private identifiers while keeping the operational shape of the original automation.
 
 Preserved workflow ideas:
 
