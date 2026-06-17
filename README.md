@@ -6,9 +6,11 @@
 
 This is my main PowerShell portfolio repo.
 
-The projects here are sanitized versions of real systems, scripts, fixes, and review workflows I worked on in a large multi-organization healthcare IT environment. The private details are removed, but the shape of the work is kept: messy CSVs, account and access planning, Microsoft 365 / Exchange migration support, endpoint migrations, reporting, validation, logs, and output another admin can review.
+The projects here are sanitized versions of real enterprise systems, scripts, fixes, and review workflows I worked on in a large multi-organization healthcare IT environment. The private details are removed, but the shape of the work is kept: messy CSVs, account and access planning, Microsoft 365 / Exchange migration support, endpoint migrations, reporting, validation, logs, and output another admin can review.
 
-The bigger story is not "I wrote a few scripts." It is that I was turning repeated operational problems into safer, repeatable workflows. Some of that meant building automation myself. Some of it meant reviewing scripts for other technical teams, tightening the risky parts, and helping them improve their testing and run notes before the scripts were used.
+It was not just “I wrote some scripts.” A lot of the work was taking repeated operational problems and automating solutions, making them safer, clearer, and easier to repeat.
+
+Sometimes I built the automation myself. Sometimes I reviewed scripts for other technical teams, tightened the risky parts, and helped improve the testing notes, run steps, and handoff details before they were used.
 
 These are public-safe demos. They use fake data, local files, and simulated actions instead of raw workplace scripts, real users, private system names, internal paths, or production exports.
 
@@ -94,7 +96,7 @@ These projects are meant to show how I think through operations automation:
 - use fake data so the workflow can be shared safely
 - add demo checks so the repo is not just a folder of scripts
 
-It also shows a side of my work that is easy to miss from script names alone: I was often the person reviewing scripts for other technical teams. I helped turn "this script works on my machine" into something safer to run, easier to test, and easier for another team to understand.
+It also shows a side of my work that is easy to miss from script names alone: I was often the person reviewing scripts for other technical teams. I helped turn "this script works on my machine" into something safer to run, easier to test, and easier for another department to understand.
 
 ## Quick Verification
 
@@ -147,7 +149,7 @@ No raw workplace scripts are published here.
 
 These projects are meant to be reusable examples and starting points. If one of the workflows is useful, you can copy the pattern, adapt the script, and rebuild it around your own environment after testing it safely.
 
-The public versions use:
+The public versions here use:
 
 - fake users
 - fake groups
