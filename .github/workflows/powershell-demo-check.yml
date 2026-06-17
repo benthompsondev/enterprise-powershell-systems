@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Run learner onboarding demo check
         shell: pwsh
@@ -23,7 +23,7 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Run password remediation demo check
         shell: pwsh
@@ -36,7 +36,7 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Run browser bookmark migration demo check
         shell: pwsh
@@ -49,7 +49,7 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Run workforce platform identity migration demo check
         shell: pwsh
@@ -62,7 +62,7 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Run workstation migration state demo check
         shell: pwsh
@@ -75,7 +75,7 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Run O365 migration readiness demo check
         shell: pwsh
@@ -88,7 +88,7 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Run support and code review utilities demo check
         shell: pwsh
