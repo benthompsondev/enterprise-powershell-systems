@@ -32,7 +32,7 @@ For the bigger GitHub map, including Ledger and the rest of my public portfolio,
 | [workstation-migration-state-toolkit](../enterprise-endpoint-systems/workstation-migration-state-toolkit/) | [Restore-NewDeviceStateDemo.ps1](../enterprise-endpoint-systems/workstation-migration-state-toolkit/scripts/Restore-NewDeviceStateDemo.ps1) | Reads captured state and plans what should be restored on the new device |
 | [workstation-migration-state-toolkit](../enterprise-endpoint-systems/workstation-migration-state-toolkit/) | [Invoke-DirectoryComputerMigrationDemo.ps1](../enterprise-endpoint-systems/workstation-migration-state-toolkit/scripts/Invoke-DirectoryComputerMigrationDemo.ps1) | Simulates the IT-side directory prep: group membership, OU movement, and tracking output |
 
-## Microsoft 365 / Messaging Migration
+## Microsoft 365 / On-Prem Email Migration
 
 | Folder | Script | What it does |
 | --- | --- | --- |
