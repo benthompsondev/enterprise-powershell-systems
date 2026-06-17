@@ -31,7 +31,7 @@ If you are reviewing this quickly, open these in order:
 9. [Enterprise Support And Code Review Utilities](enterprise-support-systems/enterprise-support-and-code-review-utilities/) - smaller support scripts plus sanitized examples of the code review work I did for other teams.
 10. [Public Release Checklist](docs/public-release-checklist.md) - the privacy and quality checklist I use before publishing another sanitized demo.
 
-The fastest proof that the repo works is the green GitHub Actions badge above. The fastest local check is:
+The GitHub Actions badge shows whether the repo is passing its automated checks. You can also test it locally with:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\enterprise-healthcare-systems\learner-onboarding-automation\tests\Run-DemoCheck.ps1
@@ -45,7 +45,7 @@ powershell -ExecutionPolicy Bypass -File .\enterprise-support-systems\enterprise
 
 ## What This Repo Is For
 
-I work in healthcare IT and information systems. A lot of useful automation starts with a messy export, a manual checklist, and a process that needs to be safer and easier to repeat.
+I work in healthcare IT and information systems. A lot of useful automation starts with disorganized exports, a manual checklist, and a process that needs to be safer and easier to repeat.
 
 These are not raw workplace scripts. They are cleaned demo versions that keep the useful architecture while replacing private systems, paths, domains, users, tickets, and organization details with fake data.
 
@@ -61,7 +61,7 @@ The pattern I want to show is simple:
 
 Across the repo, I am trying to show the same working style:
 
-- start with the real operational problem, not a perfect toy example
+- Start with the real operational problem, then build the safe demo around it.
 - treat source data as messy until the script proves otherwise
 - plan and report before changing anything risky
 - make outputs clear enough for another admin or project team to review
