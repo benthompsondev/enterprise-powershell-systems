@@ -151,8 +151,10 @@ The public version removes or generalizes:
 
 The useful architecture is still here: multi-profile processing, HTML backup, recursive bookmark handling, Edge merge behavior, missing-file handling, and reviewable output.
 
-## Privacy And Safety
+## Reuse and Safety
 
 Do not commit real bookmark exports, real usernames, internal URLs, private domains, hostnames, ticket numbers, screenshots, or production logs.
+
+This demo can be used as a starting point for a real browser migration workflow, but rebuild it around your own test data and review the merge behavior before using it on real profiles.
 
 The included demo check uses fake profiles and fake `example.local` URLs only.

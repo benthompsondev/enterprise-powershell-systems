@@ -129,7 +129,7 @@ Expected result:
 Demo check passed.
 ```
 
-## Resume Alignment
+## Where This Fits
 
 These projects connect to the kind of work I have done around:
 
@@ -141,11 +141,13 @@ These projects connect to the kind of work I have done around:
 - healthcare IT operations
 - technical documentation and repeatable process design
 
-## Privacy And Safety
+## Reuse and Safety
 
 No raw workplace scripts are published here.
 
-These examples use:
+These projects are meant to be reusable examples and starting points. If one of the workflows is useful, you can copy the pattern, adapt the script, and rebuild it around your own environment after testing it safely.
+
+The public versions use:
 
 - fake users
 - fake groups
@@ -155,7 +157,7 @@ These examples use:
 - local mock data
 - simulation output instead of real system changes
 
-Do not add real employer names, internal domains, hostnames, usernames, email addresses, ticket data, credentials, tenant IDs, client IDs, network shares, production logs, or screenshots to this repo.
+Do not add real employer names, internal domains, hostnames, usernames, email addresses, ticket data, credentials, tenant IDs, client IDs, network shares, production logs, or screenshots to this repo. Keep real organization-specific values in your own private copy, not in this public repo.
 
 See [SECURITY.md](SECURITY.md) and [Public Release Checklist](docs/public-release-checklist.md) for the safety rules I use before adding anything new.
 
