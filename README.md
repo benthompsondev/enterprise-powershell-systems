@@ -16,6 +16,8 @@ Everything here is MIT licensed. The scripts are meant to be useful skeletons fo
 
 ## Start Here
 
+For the full GitHub map, including Ledger and the other public repos worth looking at, use my [Portfolio Map](https://github.com/benthompsondev/benthompsondev/blob/main/docs/portfolio-map.md).
+
 If you are reviewing this quickly, open these in order:
 
 1. [Script Index](docs/script-index.md) - the fastest map of every script and what it does.
