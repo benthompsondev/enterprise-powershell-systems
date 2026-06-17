@@ -1,0 +1,6 @@
+"DeviceName","OperatingSystem","TargetKb","HasTargetKb","ErrorCode","FreeDiskGb","PendingReboot","RecommendedAction","SupportOwner"
+"DEMO-CLINIC-WS01","Windows 11","KB5000001","True","","18","False","NoAction","Desktop Support"
+"DEMO-CLINIC-WS02","Windows 11","KB5000001","False","0x800f0922","14","False","RemediateUpdateError","Desktop Support"
+"DEMO-CLINIC-WS03","Windows 11","KB5000001","False","0x80240034","3","False","FreeDiskThenRetry","Desktop Support"
+"DEMO-CLINIC-WS04","Windows 11","KB5000001","False","","22","True","RebootThenRecheck","Desktop Support"
+"DEMO-OLD-WS05","Windows 10","KB5000001","False","0x80070005","12","False","RefreshInventory","Desktop Support"

@@ -1,0 +1,6 @@
+RequestId,DeviceName,MacAddress,RequestedIp,ScopeName,SubmittedByTeam,ChangeTicket,ReviewNotes
+REQ-1001,DEMO-CLINIC-PRN01,00-11-22-33-44-55,192.0.2.25,ClinicDevices,NetworkOps,CHG-DEMO-1001,New printer reservation
+REQ-1002,DEMO-LAB-WS01,00-11-22-33-44-66,192.0.2.26,ClinicDevices,NetworkOps,CHG-DEMO-1002,Workstation imaging bench
+REQ-1003,DEMO-BAD-MAC,00-11-22-33-44,192.0.2.27,ClinicDevices,NetworkOps,CHG-DEMO-1003,MAC address missing one pair
+REQ-1004,DEMO-WRONG-SCOPE,00-11-22-33-44-77,198.51.100.12,ClinicDevices,NetworkOps,CHG-DEMO-1004,Wrong subnet for requested scope
+REQ-1005,DEMO-DUP-IP,00-11-22-33-44-88,192.0.2.25,ClinicDevices,NetworkOps,CHG-DEMO-1005,Duplicate IP request

@@ -1,0 +1,6 @@
+DeviceName,LastSeen,OperatingSystem,LastSuccessfulUpdate,TargetKb,InstalledKbs,ErrorCode,FreeDiskGb,PendingReboot,SupportOwner
+DEMO-CLINIC-WS01,2026-06-12,Windows 11,2026-06-10,KB5000001,"KB5000001;KB4999999",,18,False,Desktop Support
+DEMO-CLINIC-WS02,2026-06-12,Windows 11,2026-05-01,KB5000001,"KB4999999",0x800f0922,14,False,Desktop Support
+DEMO-CLINIC-WS03,2026-06-11,Windows 11,2026-05-02,KB5000001,"KB4999999",0x80240034,3,False,Desktop Support
+DEMO-CLINIC-WS04,2026-06-12,Windows 11,2026-05-03,KB5000001,"KB4999999",,22,True,Desktop Support
+DEMO-OLD-WS05,2026-05-02,Windows 10,2026-04-15,KB5000001,"KB4990000",0x80070005,12,False,Desktop Support

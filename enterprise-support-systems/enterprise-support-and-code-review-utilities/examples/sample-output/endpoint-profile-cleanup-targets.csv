@@ -1,0 +1,4 @@
+"DeviceName","UserProfileCount","StaleProfileCount","TotalProfileSizeGb","CleanupPriority","ReviewNote"
+"DEMO-CLINIC-WS02","3","3","5.27","High","Review first for cleanup or rebuild planning."
+"DEMO-CLINIC-WS03","1","0","0.68","Low","No urgent cleanup needed in demo data."
+"DEMO-CLINIC-WS01","2","1","2.49","Medium","No urgent cleanup needed in demo data."

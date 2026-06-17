@@ -18,7 +18,8 @@ If you are reviewing this quickly, open these in order:
 4. [Browser Bookmark Migration Utility](enterprise-endpoint-systems/browser-bookmark-migration/) - the endpoint migration workflow.
 5. [Workstation Migration State Toolkit](enterprise-endpoint-systems/workstation-migration-state-toolkit/) - the device replacement workflow.
 6. [O365 Migration Support Toolkit](enterprise-messaging-systems/o365-migration-readiness-toolkit/) - the Exchange/O365 migration support workflow.
-7. `.github/workflows/powershell-demo-check.yml` - the GitHub Actions check that runs the demos.
+7. [Enterprise Support And Code Review Utilities](enterprise-support-systems/enterprise-support-and-code-review-utilities/) - the smaller support scripts and code review workflow.
+8. `.github/workflows/powershell-demo-check.yml` - the GitHub Actions check that runs the demos.
 
 The fastest proof that the repo works is the green GitHub Actions badge above. The fastest local check is:
 
@@ -29,6 +30,7 @@ powershell -ExecutionPolicy Bypass -File .\enterprise-identity-systems\workforce
 powershell -ExecutionPolicy Bypass -File .\enterprise-endpoint-systems\browser-bookmark-migration\tests\Run-DemoCheck.ps1
 powershell -ExecutionPolicy Bypass -File .\enterprise-endpoint-systems\workstation-migration-state-toolkit\tests\Run-DemoCheck.ps1
 powershell -ExecutionPolicy Bypass -File .\enterprise-messaging-systems\o365-migration-readiness-toolkit\tests\Run-DemoCheck.ps1
+powershell -ExecutionPolicy Bypass -File .\enterprise-support-systems\enterprise-support-and-code-review-utilities\tests\Run-DemoCheck.ps1
 ```
 
 ## What This Repo Is For
@@ -55,6 +57,7 @@ The pattern I want to show is simple:
 | Endpoint automation | [Browser Bookmark Migration Utility](enterprise-endpoint-systems/browser-bookmark-migration/) | Chrome-to-Edge bookmark migration, multi-user profile discovery, HTML backups, recursive bookmark handling, Edge merge without overwriting existing favorites, reporting, and a manual recovery path |
 | Endpoint automation | [Workstation Migration State Toolkit](enterprise-endpoint-systems/workstation-migration-state-toolkit/) | Old-device capture, new-device restore planning, printer/app/local group inventory, master tracking CSV, per-device evidence folders, and directory group/OU migration planning |
 | Messaging migration | [O365 Migration Support Toolkit](enterprise-messaging-systems/o365-migration-readiness-toolkit/) | On-prem Exchange to O365 user migration planning, shared mailbox migration gating, license group review, duplicate license cleanup, public folder archive/conversion planning, soft-deleted mailbox repair planning, and migration summary reports |
+| Support utilities | [Enterprise Support And Code Review Utilities](enterprise-support-systems/enterprise-support-and-code-review-utilities/) | Smaller support scripts and review examples for DHCP reservation review, Windows update troubleshooting, endpoint profile cleanup targeting, security group audit exports, and code review feedback habits |
 
 ## What This Shows
 
@@ -89,6 +92,9 @@ Set-Location ..\workstation-migration-state-toolkit
 powershell -ExecutionPolicy Bypass -File .\tests\Run-DemoCheck.ps1
 
 Set-Location ..\..\enterprise-messaging-systems\o365-migration-readiness-toolkit
+powershell -ExecutionPolicy Bypass -File .\tests\Run-DemoCheck.ps1
+
+Set-Location ..\..\enterprise-support-systems\enterprise-support-and-code-review-utilities
 powershell -ExecutionPolicy Bypass -File .\tests\Run-DemoCheck.ps1
 ```
 

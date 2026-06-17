@@ -1,0 +1,6 @@
+GroupName,SamAccountName,DisplayName,Department,Enabled,LastLogonDate,AccountType,Manager
+APP_DEMO_REPORT_VIEWERS,alex.worker,Alex Worker,Finance,True,2026-06-10,User,Riley Manager
+APP_DEMO_REPORT_VIEWERS,jordan.worker,Jordan Worker,Finance,True,2026-02-01,User,Riley Manager
+APP_DEMO_REPORT_VIEWERS,old.contractor,Old Contractor,Contractor Services,False,2025-09-15,User,Riley Manager
+APP_DEMO_REPORT_VIEWERS,APP_DEMO_NESTED_GROUP,Demo Nested Group,IT,True,2026-06-01,Group,IT Owner
+APP_DEMO_REPORT_VIEWERS,svc_report_sync,Report Sync Service,IT,True,2026-06-10,Service,IT Owner

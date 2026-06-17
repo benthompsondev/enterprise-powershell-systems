@@ -1,0 +1,11 @@
+DeviceName,ProfileName,ProfileType,LastUseDate,SizeMb
+DEMO-CLINIC-WS01,alex.worker,User,2026-06-12,950
+DEMO-CLINIC-WS01,sam.worker,User,2026-03-01,1600
+DEMO-CLINIC-WS01,Default,System,2026-06-12,40
+DEMO-CLINIC-WS01,svc_desktop,Service,2026-06-01,120
+DEMO-CLINIC-WS02,jordan.worker,User,2026-01-15,2100
+DEMO-CLINIC-WS02,taylor.worker,User,2025-12-20,1850
+DEMO-CLINIC-WS02,casey.worker,User,2025-11-11,1450
+DEMO-CLINIC-WS02,helpdesk.local,Support,2026-06-13,300
+DEMO-CLINIC-WS03,morgan.worker,User,2026-06-10,700
+DEMO-CLINIC-WS03,Public,System,2026-06-10,60

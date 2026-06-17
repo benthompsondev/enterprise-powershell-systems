@@ -1,0 +1,6 @@
+"RequestId","DeviceName","ScopeName","RequestedIp","SubmittedByTeam","ChangeTicket","ReviewStatus","ReviewIssues","ReviewerNote"
+"REQ-1001","DEMO-CLINIC-PRN01","ClinicDevices","192.0.2.25","NetworkOps","CHG-DEMO-1001","NeedsReview","DuplicateRequestedIp","Fix the listed issue before implementation."
+"REQ-1002","DEMO-LAB-WS01","ClinicDevices","192.0.2.26","NetworkOps","CHG-DEMO-1002","ReadyForReservation","","Request passed demo validation."
+"REQ-1003","DEMO-BAD-MAC","ClinicDevices","192.0.2.27","NetworkOps","CHG-DEMO-1003","NeedsReview","InvalidMacAddress","Fix the listed issue before implementation."
+"REQ-1004","DEMO-WRONG-SCOPE","ClinicDevices","198.51.100.12","NetworkOps","CHG-DEMO-1004","NeedsReview","IpOutsideScope","Fix the listed issue before implementation."
+"REQ-1005","DEMO-DUP-IP","ClinicDevices","192.0.2.25","NetworkOps","CHG-DEMO-1005","NeedsReview","DuplicateRequestedIp","Fix the listed issue before implementation."

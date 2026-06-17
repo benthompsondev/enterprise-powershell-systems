@@ -1,0 +1,6 @@
+"GroupName","AccountName","DisplayName","Department","Enabled","AccountType","Manager","LastLogonDate","ReviewFlags","ReviewDecision"
+"APP_DEMO_REPORT_VIEWERS","alex.worker","Alex Worker","Finance","True","User","Riley Manager","2026-06-10","","KeepAccess"
+"APP_DEMO_REPORT_VIEWERS","jordan.worker","Jordan Worker","Finance","True","User","Riley Manager","2026-02-01","StaleLogon","ManagerReview"
+"APP_DEMO_REPORT_VIEWERS","old.contractor","Old Contractor","Contractor Services","False","User","Riley Manager","2025-09-15","DisabledAccount;StaleLogon","ManagerReview"
+"APP_DEMO_REPORT_VIEWERS","APP_DEMO_NESTED_GROUP","Demo Nested Group","IT","True","Group","IT Owner","2026-06-01","NestedGroup","ManagerReview"
+"APP_DEMO_REPORT_VIEWERS","svc_report_sync","Report Sync Service","IT","True","Service","IT Owner","2026-06-10","ServiceAccount","ManagerReview"

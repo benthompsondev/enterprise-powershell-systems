@@ -82,3 +82,16 @@ jobs:
         run: |
           Set-Location "enterprise-messaging-systems/o365-migration-readiness-toolkit"
           ./tests/Run-DemoCheck.ps1
+
+  support-and-code-review-utilities-demo:
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Run support and code review utilities demo check
+        shell: pwsh
+        run: |
+          Set-Location "enterprise-support-systems/enterprise-support-and-code-review-utilities"
+          ./tests/Run-DemoCheck.ps1
