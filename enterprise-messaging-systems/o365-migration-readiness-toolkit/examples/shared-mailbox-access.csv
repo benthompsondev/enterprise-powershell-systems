@@ -1,0 +1,7 @@
+MailboxName,DelegatedUser,PermissionType,RequestedWave,BusinessOwner
+cardiology-scheduling,alex.chen@example.local,FullAccess,Wave-03,Clinic Operations
+cardiology-scheduling,maria.patel@example.local,SendAs,Wave-03,Clinic Operations
+clinic-referrals,jordan.lee@example.local,FullAccess,Wave-03,Ambulatory Access
+clinic-referrals,casey.nguyen@example.local,FullAccess,Wave-03,Ambulatory Access
+legacy-records,pat.morgan@example.local,FullAccess,Wave-04,Records Team
+legacy-records,unknown.delegate@example.local,ReadOnly,Wave-04,Records Team

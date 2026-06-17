@@ -1,0 +1,4 @@
+"FolderPath","Owner","LastKnownUsage","CurrentPermissionCount","RecommendedDisposition","CleanupStatus","PlannedAction"
+"\Public Folders\Clinic Schedules","Clinic Operations","Active","14","ConvertToSharedMailbox","Planned","Confirm active owner, export folder content, create shared mailbox plan, remove public folder permissions after cutover"
+"\Public Folders\Old Forms","Records Team","Stale","6","ArchiveAndRemovePermissions","Planned","Archive folder content, remove user permissions, and record evidence of cleanup"
+"\Public Folders\Department Notes","Department Admins","Unknown","3","ReviewWithOwner","NeedsOwnerReview","Review with owner before removing access or converting folder"

@@ -69,3 +69,16 @@ jobs:
         run: |
           Set-Location "enterprise-endpoint-systems/workstation-migration-state-toolkit"
           ./tests/Run-DemoCheck.ps1
+
+  o365-migration-readiness-demo:
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Run O365 migration readiness demo check
+        shell: pwsh
+        run: |
+          Set-Location "enterprise-messaging-systems/o365-migration-readiness-toolkit"
+          ./tests/Run-DemoCheck.ps1

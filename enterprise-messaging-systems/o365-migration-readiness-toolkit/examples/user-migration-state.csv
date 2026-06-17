@@ -1,0 +1,8 @@
+UserPrincipalName,DisplayName,MigrationState,MailboxLocation,LicenseStatus,Enabled
+alex.chen@example.local,Alex Chen,O365,Cloud,Ready,True
+maria.patel@example.local,Maria Patel,O365,Cloud,Ready,True
+jordan.lee@example.local,Jordan Lee,O365,Cloud,Ready,True
+casey.nguyen@example.local,Casey Nguyen,OnPrem,OnPrem,MissingLicenseGroup,True
+pat.morgan@example.local,Pat Morgan,O365,Cloud,DuplicateLicensePath,True
+sam.rivera@example.local,Sam Rivera,OnPrem,OnPrem,MissingLicenseGroup,True
+disabled.user@example.local,Disabled User,OnPrem,OnPrem,MissingLicenseGroup,False

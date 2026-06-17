@@ -1,0 +1,4 @@
+"MailboxName","RequestedWave","BusinessOwner","DelegatedUsersChecked","MigratedDelegates","BlockedDelegates","ReadyToMigrate","ReadinessStatus","BlockReasons","RecommendedAction"
+"cardiology-scheduling","Wave-03","Clinic Operations","2","2","0","True","Ready","","Mailbox can be included in the next migration batch"
+"clinic-referrals","Wave-03","Ambulatory Access","2","1","1","False","Blocked","Delegated user is not migrated to O365 yet","Hold mailbox until delegated user blockers are resolved"
+"legacy-records","Wave-04","Records Team","2","1","2","False","Blocked","Delegated user is migrated but licensing still needs review; Delegated user not found in migration state export","Hold mailbox until delegated user blockers are resolved"

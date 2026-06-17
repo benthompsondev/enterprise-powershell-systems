@@ -1,0 +1,4 @@
+O365 migration readiness demo run
+[2026-06-16 21:36:16] Starting O365 migration readiness checks
+[2026-06-16 21:36:16] Loaded fake migration data for 7 users and 6 shared mailbox permission rows
+[2026-06-16 21:36:16] Wrote migration readiness reports

@@ -1,0 +1,4 @@
+UserPrincipalName,IssueType,CurrentState,RequestedAction
+sam.rivera@example.local,SoftDeletedMailbox,CloudObjectConflict,RestoreOrReconnect
+disabled.user@example.local,DisabledAccountWithMailbox,OnPremMailboxEnabled,ReviewBeforeMigration
+pat.morgan@example.local,DuplicateLicensePath,CloudMailboxReady,RemoveExtraLicensePath

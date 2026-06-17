@@ -1,0 +1,8 @@
+UserPrincipalName,RequiredLicenseGroup,CurrentLicenseGroups,ExpectedMigrationState
+alex.chen@example.local,LIC-O365-BASIC,LIC-O365-BASIC;APP-EMAIL-MIGRATED,O365
+maria.patel@example.local,LIC-O365-BASIC,LIC-O365-BASIC;APP-EMAIL-MIGRATED,O365
+jordan.lee@example.local,LIC-O365-BASIC,LIC-O365-BASIC;APP-EMAIL-MIGRATED,O365
+casey.nguyen@example.local,LIC-O365-BASIC,APP-EMAIL-PILOT,OnPrem
+pat.morgan@example.local,LIC-O365-BASIC,LIC-O365-BASIC;LIC-O365-FULL;APP-EMAIL-MIGRATED,O365
+sam.rivera@example.local,LIC-O365-BASIC,APP-EMAIL-PILOT,OnPrem
+disabled.user@example.local,LIC-O365-BASIC,APP-EMAIL-PILOT,OnPrem
