@@ -1,0 +1,8 @@
+"Area","Status","Count"
+"UserMigration","AlreadyMigrated","3"
+"UserMigration","NeedsNextWaveWork","4"
+"Licensing","DuplicateLicensePath","1"
+"SharedMailboxes","Ready","1"
+"SharedMailboxes","Blocked","2"
+"PublicFolders","CleanupOrConversionPlanned","2"
+"MailboxIssues","RepairPlanCreated","3"

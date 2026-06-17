@@ -17,7 +17,7 @@ If you are reviewing this quickly, open these in order:
 3. [Workforce Platform Identity Migration Toolkit](enterprise-identity-systems/workforce-platform-identity-migration/) - the HR/payroll platform identity migration workflow.
 4. [Browser Bookmark Migration Utility](enterprise-endpoint-systems/browser-bookmark-migration/) - the endpoint migration workflow.
 5. [Workstation Migration State Toolkit](enterprise-endpoint-systems/workstation-migration-state-toolkit/) - the device replacement workflow.
-6. [O365 Migration Readiness Toolkit](enterprise-messaging-systems/o365-migration-readiness-toolkit/) - the Exchange/O365 migration readiness workflow.
+6. [O365 Migration Support Toolkit](enterprise-messaging-systems/o365-migration-readiness-toolkit/) - the Exchange/O365 migration support workflow.
 7. `.github/workflows/powershell-demo-check.yml` - the GitHub Actions check that runs the demos.
 
 The fastest proof that the repo works is the green GitHub Actions badge above. The fastest local check is:
@@ -54,7 +54,7 @@ The pattern I want to show is simple:
 | Identity automation | [Workforce Platform Identity Migration Toolkit](enterprise-identity-systems/workforce-platform-identity-migration/) | Workday-style source validation, account creation/re-enable planning, project OU review, mailbox/license planning, termination review, and fake data reports |
 | Endpoint automation | [Browser Bookmark Migration Utility](enterprise-endpoint-systems/browser-bookmark-migration/) | Chrome-to-Edge bookmark migration, multi-user profile discovery, HTML backups, recursive bookmark handling, Edge merge without overwriting existing favorites, reporting, and a manual recovery path |
 | Endpoint automation | [Workstation Migration State Toolkit](enterprise-endpoint-systems/workstation-migration-state-toolkit/) | Old-device capture, new-device restore planning, printer/app/local group inventory, master tracking CSV, per-device evidence folders, and directory group/OU migration planning |
-| Messaging migration | [O365 Migration Readiness Toolkit](enterprise-messaging-systems/o365-migration-readiness-toolkit/) | On-prem Exchange to O365 readiness checks, shared mailbox migration gating, license group review, duplicate license cleanup, public folder retirement planning, soft-deleted mailbox repair planning, and migration summary reports |
+| Messaging migration | [O365 Migration Support Toolkit](enterprise-messaging-systems/o365-migration-readiness-toolkit/) | On-prem Exchange to O365 user migration planning, shared mailbox migration gating, license group review, duplicate license cleanup, public folder archive/conversion planning, soft-deleted mailbox repair planning, and migration summary reports |
 
 ## What This Shows
 

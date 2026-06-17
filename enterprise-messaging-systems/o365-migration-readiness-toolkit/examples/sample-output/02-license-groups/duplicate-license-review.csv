@@ -1,0 +1,2 @@
+"UserPrincipalName","UserFoundInMigrationExport","CurrentMigrationState","ExpectedMigrationState","RequiredLicenseGroup","CurrentLicenseGroups","LicenseReadinessStatus","PlannedDirectoryAction"
+"pat.morgan@example.local","True","O365","O365","LIC-O365-BASIC","LIC-O365-BASIC;LIC-O365-FULL;APP-EMAIL-MIGRATED","DuplicateLicensePath","Review and remove extra license-backed group"

@@ -1,0 +1,4 @@
+"UserPrincipalName","IssueType","CurrentState","RequestedAction","RepairPlan","SafeToAutomate","WhyItMatters"
+"sam.rivera@example.local","SoftDeletedMailbox","CloudObjectConflict","RestoreOrReconnect","Review soft-deleted mailbox state, reconnect or restore mailbox, run sync, then recheck migration readiness","No","Soft-deleted mailbox state can block or confuse migration until it is repaired"
+"disabled.user@example.local","DisabledAccountWithMailbox","OnPremMailboxEnabled","ReviewBeforeMigration","Confirm account status before migration. Do not re-enable automatically from a spreadsheet","No","Disabled accounts need owner review before mailbox work continues"
+"pat.morgan@example.local","DuplicateLicensePath","CloudMailboxReady","RemoveExtraLicensePath","Confirm intended license, remove extra license-backed group, then rerun license review","ReviewFirst","Duplicate licensing can waste licenses and make reporting inaccurate"

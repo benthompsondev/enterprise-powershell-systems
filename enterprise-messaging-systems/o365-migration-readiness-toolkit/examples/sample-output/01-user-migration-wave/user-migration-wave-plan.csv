@@ -1,0 +1,8 @@
+"UserPrincipalName","DisplayName","CurrentMigrationState","MailboxLocation","AccountEnabled","LicenseReadinessStatus","MigrationWaveAction","WhatThisAnswered"
+"alex.chen@example.local","Alex Chen","O365","Cloud","True","Ready","AlreadyMigrated","User is already on O365 and does not need to be in the next wave"
+"maria.patel@example.local","Maria Patel","O365","Cloud","True","Ready","AlreadyMigrated","User is already on O365 and does not need to be in the next wave"
+"jordan.lee@example.local","Jordan Lee","O365","Cloud","True","Ready","AlreadyMigrated","User is already on O365 and does not need to be in the next wave"
+"casey.nguyen@example.local","Casey Nguyen","OnPrem","OnPrem","True","MissingRequiredLicenseGroup","AddLicenseGroupBeforeMigration","User needs the license-backed AD group before migration"
+"pat.morgan@example.local","Pat Morgan","O365","Cloud","True","DuplicateLicensePath","CleanupLicenseBeforeNextWave","User needs duplicate licensing cleaned up before more changes"
+"sam.rivera@example.local","Sam Rivera","OnPrem","OnPrem","True","MissingRequiredLicenseGroup","AddLicenseGroupBeforeMigration","User needs the license-backed AD group before migration"
+"disabled.user@example.local","Disabled User","OnPrem","OnPrem","False","MissingRequiredLicenseGroup","HoldDisabledAccount","Disabled account should not be migrated automatically"

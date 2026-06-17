@@ -1,0 +1,3 @@
+"UserPrincipalName","DisplayName","CurrentMigrationState","MailboxLocation","AccountEnabled","LicenseReadinessStatus","MigrationWaveAction","WhatThisAnswered"
+"pat.morgan@example.local","Pat Morgan","O365","Cloud","True","DuplicateLicensePath","CleanupLicenseBeforeNextWave","User needs duplicate licensing cleaned up before more changes"
+"disabled.user@example.local","Disabled User","OnPrem","OnPrem","False","MissingRequiredLicenseGroup","HoldDisabledAccount","Disabled account should not be migrated automatically"

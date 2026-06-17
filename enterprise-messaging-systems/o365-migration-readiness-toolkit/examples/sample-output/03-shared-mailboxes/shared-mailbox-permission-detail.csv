@@ -4,4 +4,4 @@
 "clinic-referrals","jordan.lee@example.local","FullAccess","Wave-03","Ambulatory Access","True","O365","Cloud","Ready","True",""
 "clinic-referrals","casey.nguyen@example.local","FullAccess","Wave-03","Ambulatory Access","True","OnPrem","OnPrem","MissingLicenseGroup","False","Delegated user is not migrated to O365 yet"
 "legacy-records","pat.morgan@example.local","FullAccess","Wave-04","Records Team","True","O365","Cloud","DuplicateLicensePath","False","Delegated user is migrated but licensing still needs review"
-"legacy-records","unknown.delegate@example.local","ReadOnly","Wave-04","Records Team","False","Missing","Missing","Missing","False","Delegated user not found in migration state export"
+"legacy-records","unknown.delegate@example.local","ReadOnly","Wave-04","Records Team","False","Missing","Missing","Missing","False","Delegated user not found in migration export"

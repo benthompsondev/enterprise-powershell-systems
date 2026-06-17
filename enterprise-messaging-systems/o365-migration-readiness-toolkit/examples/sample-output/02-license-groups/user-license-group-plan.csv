@@ -1,0 +1,8 @@
+"UserPrincipalName","UserFoundInMigrationExport","CurrentMigrationState","ExpectedMigrationState","RequiredLicenseGroup","CurrentLicenseGroups","LicenseReadinessStatus","PlannedDirectoryAction"
+"alex.chen@example.local","True","O365","O365","LIC-O365-BASIC","LIC-O365-BASIC;APP-EMAIL-MIGRATED","Ready","No group change needed"
+"maria.patel@example.local","True","O365","O365","LIC-O365-BASIC","LIC-O365-BASIC;APP-EMAIL-MIGRATED","Ready","No group change needed"
+"jordan.lee@example.local","True","O365","O365","LIC-O365-BASIC","LIC-O365-BASIC;APP-EMAIL-MIGRATED","Ready","No group change needed"
+"casey.nguyen@example.local","True","OnPrem","OnPrem","LIC-O365-BASIC","APP-EMAIL-PILOT","MissingRequiredLicenseGroup","Add required license-backed group after approval"
+"pat.morgan@example.local","True","O365","O365","LIC-O365-BASIC","LIC-O365-BASIC;LIC-O365-FULL;APP-EMAIL-MIGRATED","DuplicateLicensePath","Review and remove extra license-backed group"
+"sam.rivera@example.local","True","OnPrem","OnPrem","LIC-O365-BASIC","APP-EMAIL-PILOT","MissingRequiredLicenseGroup","Add required license-backed group after approval"
+"disabled.user@example.local","True","OnPrem","OnPrem","LIC-O365-BASIC","APP-EMAIL-PILOT","MissingRequiredLicenseGroup","Add required license-backed group after approval"
