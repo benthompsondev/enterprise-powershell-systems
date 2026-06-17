@@ -1,4 +1,4 @@
-name: PowerShell quality report
+name: PowerShell quality checks
 
 on:
   push:
@@ -37,7 +37,7 @@ jobs:
 
           Write-Host "Parsed $($files.Count) PowerShell scripts without syntax errors."
 
-  psscriptanalyzer-report:
+  psscriptanalyzer-errors:
     runs-on: windows-latest
 
     steps:
@@ -50,15 +50,15 @@ jobs:
           Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
           Install-Module -Name PSScriptAnalyzer -Scope CurrentUser -Force
 
-      - name: Run PSScriptAnalyzer report
+      - name: Run PSScriptAnalyzer error check
         shell: pwsh
         run: |
-          $results = Invoke-ScriptAnalyzer -Path . -Recurse -Severity Error,Warning
+          $results = Invoke-ScriptAnalyzer -Path . -Recurse -Severity Error
 
           if ($results) {
             $results | Format-Table -AutoSize
-            Write-Warning "PSScriptAnalyzer found items to review. This job is report-only for now."
+            throw "PSScriptAnalyzer found error-level items to review."
           }
           else {
-            Write-Host "PSScriptAnalyzer did not report errors or warnings."
+            Write-Host "PSScriptAnalyzer did not report error-level findings."
           }

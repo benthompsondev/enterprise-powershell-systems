@@ -1,7 +1,7 @@
 # Enterprise PowerShell Systems
 
 [![PowerShell demo checks](https://github.com/benthompsondev/enterprise-powershell-systems/actions/workflows/powershell-demo-check.yml/badge.svg)](https://github.com/benthompsondev/enterprise-powershell-systems/actions/workflows/powershell-demo-check.yml)
-[![PowerShell quality report](https://github.com/benthompsondev/enterprise-powershell-systems/actions/workflows/powershell-quality.yml/badge.svg)](https://github.com/benthompsondev/enterprise-powershell-systems/actions/workflows/powershell-quality.yml)
+[![PowerShell quality checks](https://github.com/benthompsondev/enterprise-powershell-systems/actions/workflows/powershell-quality.yml/badge.svg)](https://github.com/benthompsondev/enterprise-powershell-systems/actions/workflows/powershell-quality.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 This is my main PowerShell portfolio repo.
