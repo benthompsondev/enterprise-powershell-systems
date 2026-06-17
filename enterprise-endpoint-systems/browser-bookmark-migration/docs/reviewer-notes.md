@@ -1,4 +1,4 @@
-# Interview Notes
+# Reviewer Notes
 
 ## Short Version
 
@@ -6,7 +6,7 @@ I built this kind of script to support a browser standardization effort where us
 
 The important part was not just copying a file. The script backs up Chrome bookmarks first, keeps the backup in a format Edge can manually import, then merges Chrome bookmarks into existing Edge favorites without wiping out what users already had.
 
-## Good Talking Points
+## What I Would Point Out
 
 - The script processes local Windows profiles instead of only the current user.
 - It skips profiles cleanly when Chrome bookmarks do not exist.

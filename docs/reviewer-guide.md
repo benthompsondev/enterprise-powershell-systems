@@ -7,11 +7,12 @@ The repo is organized by the kind of operational problem being solved. Each proj
 ## What To Look At First
 
 1. Start with the root `README.md` to understand the overall story.
-2. Open one project README and check the "What This Says About My Work" section.
-3. Look at the matching `scripts\` folder to see the PowerShell flow.
-4. Look at `examples\sample-output\` when available to see the kind of report or plan the script creates.
-5. Check `tests\Run-DemoCheck.ps1` to see how the demo proves the workflow still runs.
-6. Check the GitHub Actions badge to confirm the repo is validated automatically.
+2. Open [Script Index](script-index.md) if you want the fastest map of every script.
+3. Open one project README and check the "What This Says About My Work" section.
+4. Look at the matching `scripts\` folder to see the PowerShell flow.
+5. Look at `examples\sample-output\` when available to see the kind of report or plan the script creates.
+6. Check `tests\Run-DemoCheck.ps1` to see how the demo proves the workflow still runs.
+7. Check the GitHub Actions badges to confirm the repo is validated automatically.
 
 ## What The Projects Are Meant To Prove
 
@@ -37,6 +38,14 @@ The same pattern shows up in most of the projects:
 - add a demo check so the project is not just static files
 
 That is the point of this repo. It is meant to show practical PowerShell and operations automation work, not perfect toy examples.
+
+## Repo Hygiene To Notice
+
+- MIT license so the examples can be reused.
+- `SECURITY.md` so people know not to submit private workplace data.
+- `CONTRIBUTING.md` and pull request checklist with a privacy review section.
+- [Public Release Checklist](public-release-checklist.md) for future sanitized demos.
+- GitHub Actions demo checks and a PowerShell quality report.
 
 ## Privacy Note
 

@@ -1,4 +1,4 @@
-# Interview Notes
+# Reviewer Notes
 
 ## Short Version
 
@@ -6,7 +6,7 @@ I built scripts like this during a staged move from on-prem Exchange to O365. It
 
 The useful part was that the scripts were not all trying to do the same thing. Each script solved a different migration problem and turned manual checking into repeatable reports or action plans.
 
-## What I Would Talk Through
+## What I Would Point Out
 
 - User migration was its own problem. I needed scripts to show who had already moved, who still needed to move, who was missing data, and who needed licensing first.
 - Shared mailboxes were separate. A mailbox could only move once every delegated user was already migrated and licensed, so the scripts checked permissions and blocked unsafe moves.

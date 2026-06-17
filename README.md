@@ -1,6 +1,8 @@
 # Enterprise PowerShell Systems
 
 [![PowerShell demo checks](https://github.com/benthompsondev/enterprise-powershell-systems/actions/workflows/powershell-demo-check.yml/badge.svg)](https://github.com/benthompsondev/enterprise-powershell-systems/actions/workflows/powershell-demo-check.yml)
+[![PowerShell quality report](https://github.com/benthompsondev/enterprise-powershell-systems/actions/workflows/powershell-quality.yml/badge.svg)](https://github.com/benthompsondev/enterprise-powershell-systems/actions/workflows/powershell-quality.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 This is my main PowerShell portfolio repo.
 
@@ -10,19 +12,22 @@ The bigger story is not "I wrote a few scripts." It is that I was turning repeat
 
 These are public-safe demos. They use fake data, local files, and simulated actions instead of raw workplace scripts, real users, private system names, internal paths, or production exports.
 
+Everything here is MIT licensed. The scripts are meant to be useful skeletons for other admins, but they should be reviewed and adapted before being used against live systems.
+
 ## Start Here
 
 If you are reviewing this quickly, open these in order:
 
-1. [Learner Onboarding Automation](enterprise-healthcare-systems/learner-onboarding-automation/) - the most complete account/access workflow.
-2. [Password Remediation Workflow](enterprise-healthcare-systems/password-remediation-workflow/) - a monthly security follow-up system with state tracking.
-3. [Workstation Migration State Toolkit](enterprise-endpoint-systems/workstation-migration-state-toolkit/) - a hardware refresh workflow built for hundreds of device replacements.
-4. [O365 Migration Support Toolkit](enterprise-messaging-systems/o365-migration-readiness-toolkit/) - migration readiness checks for users, shared mailboxes, public folders, licensing, and mailbox repair.
-5. [Workforce Platform Identity Migration Toolkit](enterprise-identity-systems/workforce-platform-identity-migration/) - identity and account planning for a 1000+ user workforce platform rollout.
-6. [Browser Bookmark Migration Utility](enterprise-endpoint-systems/browser-bookmark-migration/) - a focused endpoint migration script built around avoiding user pain.
-7. [Enterprise Support And Code Review Utilities](enterprise-support-systems/enterprise-support-and-code-review-utilities/) - smaller support scripts plus sanitized examples of the code review work I did for other teams.
-8. [Repo Reviewer Guide](docs/reviewer-guide.md) - a short guide for what to look at first and what each system is meant to prove.
-9. `.github/workflows/powershell-demo-check.yml` - the GitHub Actions check that runs the demos.
+1. [Script Index](docs/script-index.md) - the fastest map of every script and what it does.
+2. [Repo Reviewer Guide](docs/reviewer-guide.md) - the short guide for what to look at first and what each system is meant to prove.
+3. [Learner Onboarding Automation](enterprise-healthcare-systems/learner-onboarding-automation/) - the most complete account/access workflow.
+4. [Password Remediation Workflow](enterprise-healthcare-systems/password-remediation-workflow/) - a monthly security follow-up system with state tracking.
+5. [Workstation Migration State Toolkit](enterprise-endpoint-systems/workstation-migration-state-toolkit/) - a hardware refresh workflow built for hundreds of device replacements.
+6. [O365 Migration Support Toolkit](enterprise-messaging-systems/o365-migration-readiness-toolkit/) - migration readiness checks for users, shared mailboxes, public folders, licensing, and mailbox repair.
+7. [Workforce Platform Identity Migration Toolkit](enterprise-identity-systems/workforce-platform-identity-migration/) - identity and account planning for a 1000+ user workforce platform rollout.
+8. [Browser Bookmark Migration Utility](enterprise-endpoint-systems/browser-bookmark-migration/) - a focused endpoint migration script built around avoiding user pain.
+9. [Enterprise Support And Code Review Utilities](enterprise-support-systems/enterprise-support-and-code-review-utilities/) - smaller support scripts plus sanitized examples of the code review work I did for other teams.
+10. [Public Release Checklist](docs/public-release-checklist.md) - the privacy and quality checklist I use before publishing another sanitized demo.
 
 The fastest proof that the repo works is the green GitHub Actions badge above. The fastest local check is:
 
@@ -150,6 +155,8 @@ These examples use:
 
 Do not add real employer names, internal domains, hostnames, usernames, email addresses, ticket data, credentials, tenant IDs, client IDs, network shares, production logs, or screenshots to this repo.
 
+See [SECURITY.md](SECURITY.md) and [Public Release Checklist](docs/public-release-checklist.md) for the safety rules I use before adding anything new.
+
 ## How To Use
 
 Open a project folder and read its README first. Most projects include:
@@ -159,3 +166,7 @@ Open a project folder and read its README first. Most projects include:
 - generated sample output
 - a demo check under `tests/`
 - notes explaining what was sanitized
+
+## License
+
+MIT. See [LICENSE](LICENSE).

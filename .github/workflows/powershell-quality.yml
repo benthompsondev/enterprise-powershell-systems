@@ -1,0 +1,64 @@
+name: PowerShell quality report
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  syntax-check:
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Parse all PowerShell scripts
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+
+          $files = Get-ChildItem -Path . -Recurse -Filter *.ps1
+          $parseErrors = New-Object System.Collections.Generic.List[string]
+
+          foreach ($file in $files) {
+            $tokens = $null
+            $errors = $null
+            [System.Management.Automation.Language.Parser]::ParseFile($file.FullName, [ref]$tokens, [ref]$errors) | Out-Null
+
+            foreach ($errorItem in $errors) {
+              $parseErrors.Add("$($file.FullName): $($errorItem.Message)")
+            }
+          }
+
+          if ($parseErrors.Count -gt 0) {
+            $parseErrors | ForEach-Object { Write-Error $_ }
+            exit 1
+          }
+
+          Write-Host "Parsed $($files.Count) PowerShell scripts without syntax errors."
+
+  psscriptanalyzer-report:
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install PSScriptAnalyzer
+        shell: pwsh
+        run: |
+          Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
+          Install-Module -Name PSScriptAnalyzer -Scope CurrentUser -Force
+
+      - name: Run PSScriptAnalyzer report
+        shell: pwsh
+        run: |
+          $results = Invoke-ScriptAnalyzer -Path . -Recurse -Severity Error,Warning
+
+          if ($results) {
+            $results | Format-Table -AutoSize
+            Write-Warning "PSScriptAnalyzer found items to review. This job is report-only for now."
+          }
+          else {
+            Write-Host "PSScriptAnalyzer did not report errors or warnings."
+          }

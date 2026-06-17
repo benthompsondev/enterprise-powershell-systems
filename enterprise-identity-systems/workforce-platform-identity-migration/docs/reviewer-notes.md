@@ -1,4 +1,4 @@
-# Interview Notes
+# Reviewer Notes
 
 ## Short Version
 
@@ -6,7 +6,7 @@ I built scripts to help with the identity side of a workforce/payroll platform m
 
 The key point is that the scripts did not just blindly create accounts. They produced reports and review buckets so questionable rows could be checked before action.
 
-## Good Talking Points
+## What I Would Point Out
 
 - Source data was not clean enough to process blindly.
 - Matching used stable identifiers first, then fell back to username/display name.

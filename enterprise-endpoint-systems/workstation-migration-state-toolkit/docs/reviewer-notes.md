@@ -1,4 +1,4 @@
-# Interview Notes
+# Reviewer Notes
 
 ## Short Version
 
@@ -6,7 +6,7 @@ I built this kind of system to make a large workstation replacement project easi
 
 The important part was making the migration repeatable. Each device got its own folder with CSV backups, logs, and a manifest, and the process also appended to a master tracking CSV so progress could be reviewed across the whole project.
 
-## Good Talking Points
+## What I Would Point Out
 
 - Script 1 captured the old device state before hardware replacement.
 - Script 2 used the captured state to plan what should be restored on the new device.
