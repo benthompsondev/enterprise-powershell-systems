@@ -57,7 +57,7 @@ The pattern I want to show is simple:
 - handle duplicate rows, missing values, existing accounts, and unclear flags
 - keep logs and demo checks so the workflow can be trusted
 
-## The Through Line
+## Goal of this Repo
 
 Across the repo, I am trying to show the same working style:
 
